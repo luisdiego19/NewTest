@@ -18,7 +18,7 @@ import javax.swing.JTable;
 public class PanelSolicitudes extends javax.swing.JFrame {
 
     
-    private uiPanelSolicitudes ui;
+    private final uiPanelSolicitudes ui;
     
     /**
      * Creates new form PanelSolicitudes
@@ -149,7 +149,7 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSolicitudActionPerformed
-        // TODO add your handling code here:
+        ui.accionBtnVerSolicitud();
     }//GEN-LAST:event_btnVerSolicitudActionPerformed
 
     private void menuItemBackOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBackOfficeActionPerformed

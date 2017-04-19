@@ -11,15 +11,16 @@ import gui.CarteraDocente;
 import gui.Configuraciones;
 import gui.Estadisticas;
 import gui.PlanEstudios;
+import gui.VisionSolicitud;
 import java.util.Date;
 
 public class uiPanelSolicitudes 
 {    
-    private final PanelSolicitudes panel;
+    private final PanelSolicitudes panelSolicitudes;
     
     public uiPanelSolicitudes(PanelSolicitudes pPanel)            
     {
-        this.panel = pPanel;
+        this.panelSolicitudes = pPanel;
     }
                         
     public void accionMenuBackOffice()            
@@ -57,6 +58,16 @@ public class uiPanelSolicitudes
         planEstudios.setVisible(true);
     }
                    
+    
+    public void accionBtnVerSolicitud()
+    {
+        VisionSolicitud visionSolicitud = new VisionSolicitud();
+        visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE);
+        // TODO visionSolicitud.getUi().setSolicitud(solicitud);
+        visionSolicitud.setVisible(true);        
+    }
+    
+    
     public ArrayList<Solicitud> getDatosSolicitudes(String pPathLocal, String pIDHojaDrive)
     {
         try{
