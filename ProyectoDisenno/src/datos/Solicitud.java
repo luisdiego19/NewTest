@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Solicitud {
     
-    private int Codigo; 
     private Date Fecha; 
     private String Identificacion; 
     private Periodo periodo;
@@ -14,9 +13,9 @@ public class Solicitud {
     private String Detalles; 
     private Object Adjuntos; 
     private EstadoEnum Estado; 
-
-    public Solicitud(int Codigo, Date Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {
-        this.Codigo = Codigo;
+    
+    
+    public Solicitud(Date Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {        
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.periodo = periodo;
@@ -28,14 +27,6 @@ public class Solicitud {
         this.Estado = Estado;
     }
         
-    public int getCodigo() {
-        return Codigo;
-    }
-
-    public void setCodigo(int Codigo) {
-        this.Codigo = Codigo;
-    }
-
     public Date getFecha() {
         return Fecha;
     }

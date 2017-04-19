@@ -5,7 +5,11 @@
  */
 package gui;
 
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JTable;
 import javax.swing.table.TableColumn;
+import test.*;
 
 /**
  *
@@ -47,15 +51,10 @@ public class PanelSolicitudes extends javax.swing.JFrame {
 
         tablaSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Número", "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
+                "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
             }
         ));
         tablaSolicitudes.setCellSelectionEnabled(true);
@@ -176,6 +175,26 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBtnVerSolicitud() {
+        return btnVerSolicitud;
+    }
+
+    public JMenuItem getMenuItemBackOffice() {
+        return menuItemBackOffice;
+    }
+
+    public JMenuItem getMenuItemConfiguraciones() {
+        return menuItemConfiguraciones;
+    }
+
+    public JMenuItem getMenuItemEstadisticas() {
+        return menuItemEstadisticas;
+    }
+
+    public JTable getTablaSolicitudes() {
+        return tablaSolicitudes;
+    }
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerSolicitud;
     private javax.swing.JMenu jMenu1;
