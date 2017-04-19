@@ -37,9 +37,10 @@ public class DataLoader
         for(int row = 1; row < rowCount; row ++)
         {
             ArrayList<Cell> sheetCells = new ArrayList<>();
-            for(int column = 1; column < columnCount; column++)
+            for(int column = 0; column < columnCount; column++)
             {
-                sheetCells.add(excel.getSheet().getCell(column, row));
+                sheetCells.add(excel.getSheet().getCell(column, row));                
+                System.out.println(excel.getSheet().getCell(column, row).getContents());
             }
             String identificacion = sheetCells.get(0).getContents();
             String nombre = sheetCells.get(1).getContents();

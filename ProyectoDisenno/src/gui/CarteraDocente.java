@@ -5,17 +5,33 @@
  */
 package gui;
 
+import controlador.ui.uiCarteraDocentes;
+import controlador.ui.uiPanelSolicitudes;
+import javax.swing.JTable;
+
 /**
  *
  * @author USER
  */
 public class CarteraDocente extends javax.swing.JFrame {
 
+    private uiCarteraDocentes ui;
+    
     /**
      * Creates new form CarteraDocente
      */
     public CarteraDocente() {
         initComponents();
+        ui = new uiCarteraDocentes(this);
+        ui.populateTable();        
+    }
+
+    public uiCarteraDocentes getUi() {
+        return ui;
+    }
+
+    public JTable getTablaDocentes() {
+        return tablaDocentes;
     }
 
     /**
