@@ -8,15 +8,13 @@ public class Solicitante {
     private String Apellidos;
     private String Correo;
     private String Telefono; 
-    private int Carnet; 
 
-    public Solicitante(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono, int Carnet) {
+    public Solicitante(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono) {
         this.Identificacion = Identificacion;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.Correo = Correo;
         this.Telefono = Telefono;
-        this.Carnet = Carnet;
     }
            
     public Solicitud registrarSolicitud( 
@@ -72,12 +70,5 @@ public class Solicitante {
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
     }
-
-    public int getCarnet() {
-        return Carnet;
-    }
-
-    public void setCarnet(int Carnet) {
-        this.Carnet = Carnet;
-    }                
+                 
 }

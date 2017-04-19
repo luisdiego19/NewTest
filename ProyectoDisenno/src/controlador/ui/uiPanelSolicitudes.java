@@ -57,8 +57,7 @@ public class uiPanelSolicitudes
         planEstudios.setDefaultCloseOperation(PlanEstudios.DISPOSE_ON_CLOSE);
         planEstudios.setVisible(true);
     }
-                   
-    
+                       
     public void accionBtnVerSolicitud()
     {
         VisionSolicitud visionSolicitud = new VisionSolicitud();
@@ -66,8 +65,7 @@ public class uiPanelSolicitudes
         // TODO visionSolicitud.getUi().setSolicitud(solicitud);
         visionSolicitud.setVisible(true);        
     }
-    
-    
+        
     public ArrayList<Solicitud> getDatosSolicitudes(String pPathLocal, String pIDHojaDrive)
     {
         try{
