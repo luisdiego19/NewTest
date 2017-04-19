@@ -39,7 +39,7 @@ public class PlanEstudios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Nombre", "Grupo", "ID Profesor", "Nombre Profesor", "null"
+                "Código", "Nombre", "Grupo", "ID Profesor", "Nombre Profesor", "Primera Fecha/Hora", "Segunda Fecha/Hora"
             }
         ));
         tablaDocentes.setCellSelectionEnabled(true);
