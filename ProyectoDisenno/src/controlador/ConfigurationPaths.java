@@ -3,7 +3,7 @@ package controlador;
 
 public class ConfigurationPaths {
     
-   private ConfigurationPaths configurationPaths; 
+   private static ConfigurationPaths configurationPaths; 
     
    private String pathSolicitudesLocal;
    private String pathGoogleDriveExcel;
@@ -32,13 +32,18 @@ public class ConfigurationPaths {
         this.directorAdminisionRegistro = directorAdminisionRegistro;
     }
 
-    public ConfigurationPaths getInstance()
+    public static ConfigurationPaths getInstance()
     {
         if(configurationPaths == null)
         {
             configurationPaths = new ConfigurationPaths();
         } 
         return configurationPaths;         
+    }
+    
+    public static void setInstance(ConfigurationPaths pConfigurationPaths)
+    {
+        configurationPaths =  pConfigurationPaths;
     }
     
     public String getPathSolicitudesLocal() {
