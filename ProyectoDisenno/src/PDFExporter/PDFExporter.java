@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package testpdf.PDFExporter;
+package PDFExporter;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -17,7 +17,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import testpdf.GUI;
 
 /**
  *
@@ -35,7 +34,6 @@ public class PDFExporter {
             try {
                 PdfWriter.getInstance(doc, new FileOutputStream("Report.pdf"));
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             doc.open();
@@ -128,7 +126,6 @@ public class PDFExporter {
                     
             doc.close();
         } catch (DocumentException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
