@@ -24,5 +24,5 @@ public class Horario {
 
     public void setSegundaFecha(FechaHorarios SegundaFecha) {
         this.SegundaFecha = SegundaFecha;
-    }            
+    }           
 }
