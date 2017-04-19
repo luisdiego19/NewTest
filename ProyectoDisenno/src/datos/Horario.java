@@ -1,30 +1,28 @@
 package datos;
 
-import java.sql.Time;
-
 public class Horario {
-    
-    private Time HoraInicio;
-    private Time HoraFin;
+        
+    private FechaHorarios PrimeraFecha;
+    private FechaHorarios SegundaFecha; 
 
-    public Horario(Time HoraInicio, Time HoraFin) {
-        this.HoraInicio = HoraInicio;
-        this.HoraFin = HoraFin;
-    }   
-    
-    public Time getHoraInicio() {
-        return HoraInicio;
+    public Horario(FechaHorarios PrimeraFecha, FechaHorarios SegundaFecha) {
+        this.PrimeraFecha = PrimeraFecha;
+        this.SegundaFecha = SegundaFecha;
     }
 
-    public void setHoraInicio(Time HoraInicio) {
-        this.HoraInicio = HoraInicio;
+    public FechaHorarios getPrimeraFecha() {
+        return PrimeraFecha;
     }
 
-    public Time getHoraFin() {
-        return HoraFin;
+    public void setPrimeraFecha(FechaHorarios PrimeraFecha) {
+        this.PrimeraFecha = PrimeraFecha;
     }
 
-    public void setHoraFin(Time HoraFin) {
-        this.HoraFin = HoraFin;
-    }            
+    public FechaHorarios getSegundaFecha() {
+        return SegundaFecha;
+    }
+
+    public void setSegundaFecha(FechaHorarios SegundaFecha) {
+        this.SegundaFecha = SegundaFecha;
+    }           
 }
