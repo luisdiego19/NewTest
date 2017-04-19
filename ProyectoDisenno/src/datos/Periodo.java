@@ -10,6 +10,13 @@ public class Periodo {
     private Date FechaInicio;
     private Date FechaFinal;
 
+    
+    public Periodo(String nombre)
+    {
+        this.Nombre = nombre;
+    }
+    
+    
     public Periodo(int ID, String Nombre, Date FechaInicio, Date FechaFinal) {
         this.ID = ID;
         this.Nombre = Nombre;

@@ -15,7 +15,6 @@ public class Solicitud {
     private EstadoEnum Estado; 
     
     
-
     public Solicitud(Date Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {        
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
