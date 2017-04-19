@@ -5,7 +5,11 @@
  */
 package gui;
 
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+import javax.swing.JTable;
 import javax.swing.table.TableColumn;
+import test.*;
 
 /**
  *
@@ -18,6 +22,8 @@ public class PanelSolicitudes extends javax.swing.JFrame {
      */
     public PanelSolicitudes() {
         initComponents();
+        UITestCarga ui = new UITestCarga(this);
+        ui.populateTable();
     }
 
     /**
@@ -176,6 +182,26 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         });
     }
 
+    public JButton getBtnVerSolicitud() {
+        return btnVerSolicitud;
+    }
+
+    public JMenuItem getMenuItemBackOffice() {
+        return menuItemBackOffice;
+    }
+
+    public JMenuItem getMenuItemConfiguraciones() {
+        return menuItemConfiguraciones;
+    }
+
+    public JMenuItem getMenuItemEstadisticas() {
+        return menuItemEstadisticas;
+    }
+
+    public JTable getTablaSolicitudes() {
+        return tablaSolicitudes;
+    }
+            
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVerSolicitud;
     private javax.swing.JMenu jMenu1;
