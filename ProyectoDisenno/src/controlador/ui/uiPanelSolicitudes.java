@@ -4,7 +4,7 @@ import datos.Solicitud;
 import gui.PanelSolicitudes;
 import java.util.ArrayList;
 import jxl.Cell;
-import test.Excel;
+import controlador.Excel;
 import test.TestClass;
 
 public class uiPanelSolicitudes 

@@ -22,8 +22,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
      */
     public PanelSolicitudes() {
         initComponents();
-        UITestCarga ui = new UITestCarga(this);
-        ui.populateTable();
     }
 
     /**
@@ -53,15 +51,10 @@ public class PanelSolicitudes extends javax.swing.JFrame {
 
         tablaSolicitudes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Número", "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
+                "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
             }
         ));
         tablaSolicitudes.setCellSelectionEnabled(true);
