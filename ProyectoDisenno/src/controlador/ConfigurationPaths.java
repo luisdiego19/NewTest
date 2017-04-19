@@ -1,7 +1,9 @@
 package controlador;
 
+import java.io.Serializable;
 
-public class ConfigurationPaths {
+
+public class ConfigurationPaths implements Serializable {
     
    private static ConfigurationPaths configurationPaths; 
     

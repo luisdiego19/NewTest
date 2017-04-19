@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import controlador.DataLoader;
 import datos.Solicitud;
 import gui.PanelSolicitudes;
 import java.util.ArrayList;
@@ -21,6 +22,8 @@ public class uiPanelSolicitudes
     public uiPanelSolicitudes(PanelSolicitudes pPanel)            
     {
         this.panelSolicitudes = pPanel;
+        DataLoader loader = new DataLoader();
+        loader.cargarPrimerosDatos();
     }
                         
     public void accionMenuBackOffice()            
