@@ -17,11 +17,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemBackOfficeActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="menuItemEstadisticas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Estadisticas"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemConfiguraciones">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Configuraciones"/>

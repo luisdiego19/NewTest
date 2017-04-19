@@ -39,7 +39,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemBackOffice = new javax.swing.JMenuItem();
-        menuItemEstadisticas = new javax.swing.JMenuItem();
         menuItemConfiguraciones = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -78,9 +77,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
             }
         });
         jMenu1.add(menuItemBackOffice);
-
-        menuItemEstadisticas.setText("Estadisticas");
-        jMenu1.add(menuItemEstadisticas);
 
         menuItemConfiguraciones.setText("Configuraciones");
         menuItemConfiguraciones.setToolTipText("");
@@ -187,10 +183,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         return menuItemConfiguraciones;
     }
 
-    public JMenuItem getMenuItemEstadisticas() {
-        return menuItemEstadisticas;
-    }
-
     public JTable getTablaSolicitudes() {
         return tablaSolicitudes;
     }
@@ -207,7 +199,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuItemBackOffice;
     private javax.swing.JMenuItem menuItemConfiguraciones;
-    private javax.swing.JMenuItem menuItemEstadisticas;
     private javax.swing.JTable tablaSolicitudes;
     // End of variables declaration//GEN-END:variables
 }
