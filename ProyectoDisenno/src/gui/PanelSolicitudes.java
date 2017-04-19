@@ -5,11 +5,11 @@
  */
 package gui;
 
+import controlador.ui.uiPanelSolicitudes;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
-import javax.swing.table.TableColumn;
-import test.*;
+
 
 /**
  *
@@ -17,11 +17,15 @@ import test.*;
  */
 public class PanelSolicitudes extends javax.swing.JFrame {
 
+    
+    private final uiPanelSolicitudes ui;
+    
     /**
      * Creates new form PanelSolicitudes
      */
     public PanelSolicitudes() {
         initComponents();
+        ui = new uiPanelSolicitudes(this);                
     }
 
     /**
@@ -41,10 +45,9 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         menuItemBackOffice = new javax.swing.JMenuItem();
         menuItemConfiguraciones = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menuItemEstadisticas = new javax.swing.JMenuItem();
+        menuItemCarteraDocente = new javax.swing.JMenuItem();
+        menuItemPlanEstudios = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,23 +83,40 @@ public class PanelSolicitudes extends javax.swing.JFrame {
 
         menuItemConfiguraciones.setText("Configuraciones");
         menuItemConfiguraciones.setToolTipText("");
+        menuItemConfiguraciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemConfiguracionesActionPerformed(evt);
+            }
+        });
         jMenu1.add(menuItemConfiguraciones);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Datos");
 
-        jMenuItem2.setText("Estadísticas");
-        jMenu2.add(jMenuItem2);
+        menuItemEstadisticas.setText("Estadísticas");
+        menuItemEstadisticas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEstadisticasActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemEstadisticas);
 
-        jMenuItem3.setText("Cartera Docente");
-        jMenu2.add(jMenuItem3);
+        menuItemCarteraDocente.setText("Cartera Docente");
+        menuItemCarteraDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemCarteraDocenteActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemCarteraDocente);
 
-        jMenuItem4.setText("Plan de Estudios");
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Oferta Académica del Periodo");
-        jMenu2.add(jMenuItem5);
+        menuItemPlanEstudios.setText("Plan de Estudios");
+        menuItemPlanEstudios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemPlanEstudiosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuItemPlanEstudios);
 
         jMenuBar1.add(jMenu2);
 
@@ -129,12 +149,28 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSolicitudActionPerformed
-        // TODO add your handling code here:
+        ui.accionBtnVerSolicitud();
     }//GEN-LAST:event_btnVerSolicitudActionPerformed
 
     private void menuItemBackOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBackOfficeActionPerformed
-        // TODO add your handling code here:
+        ui.accionMenuBackOffice();
     }//GEN-LAST:event_menuItemBackOfficeActionPerformed
+
+    private void menuItemConfiguracionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemConfiguracionesActionPerformed
+        ui.accionMenuConfiguraciones();
+    }//GEN-LAST:event_menuItemConfiguracionesActionPerformed
+
+    private void menuItemEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemEstadisticasActionPerformed
+        ui.accionMenuEstadisticas();
+    }//GEN-LAST:event_menuItemEstadisticasActionPerformed
+
+    private void menuItemCarteraDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCarteraDocenteActionPerformed
+        ui.accionMenuCarteraDocente();
+    }//GEN-LAST:event_menuItemCarteraDocenteActionPerformed
+
+    private void menuItemPlanEstudiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemPlanEstudiosActionPerformed
+        ui.accionMenuPlanEstudios();
+    }//GEN-LAST:event_menuItemPlanEstudiosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,13 +228,12 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuItemBackOffice;
+    private javax.swing.JMenuItem menuItemCarteraDocente;
     private javax.swing.JMenuItem menuItemConfiguraciones;
+    private javax.swing.JMenuItem menuItemEstadisticas;
+    private javax.swing.JMenuItem menuItemPlanEstudios;
     private javax.swing.JTable tablaSolicitudes;
     // End of variables declaration//GEN-END:variables
 }

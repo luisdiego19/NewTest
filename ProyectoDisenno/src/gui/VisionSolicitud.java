@@ -5,19 +5,31 @@
  */
 package gui;
 
+import controlador.ui.uiVisionSolicitud;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 /**
  *
  * @author USER
  */
 public class VisionSolicitud extends javax.swing.JFrame {
 
+    
+    private final uiVisionSolicitud ui;
+    
     /**
      * Creates new form VisionSolicitud
      */
     public VisionSolicitud() {
         initComponents();
+        ui = new uiVisionSolicitud(this);
     }
-
+           
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -447,6 +459,175 @@ public class VisionSolicitud extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVerResolucionActionPerformed
 
+    public uiVisionSolicitud getUi() {
+        return ui;
+    }
+
+    public JTextArea getAreaTextDetalles() {
+        return areaTextDetalles;
+    }
+
+    public JButton getBtnAnular() {
+        return btnAnular;
+    }
+
+    public JButton getBtnGenerarHTML() {
+        return btnGenerarHTML;
+    }
+
+    public JButton getBtnGenerarPDF() {
+        return btnGenerarPDF;
+    }
+
+    public JButton getBtnTramitar() {
+        return btnTramitar;
+    }
+
+    public JButton getBtnVerConsiderandos() {
+        return btnVerConsiderandos;
+    }
+
+    public JButton getBtnVerEvidencia() {
+        return btnVerEvidencia;
+    }
+
+    public JButton getBtnVerResolucion() {
+        return btnVerResolucion;
+    }
+
+    public JLabel getjLabel10() {
+        return jLabel10;
+    }
+
+    public JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public JLabel getjLabel12() {
+        return jLabel12;
+    }
+
+    public JLabel getjLabel16() {
+        return jLabel16;
+    }
+
+    public JLabel getjLabel17() {
+        return jLabel17;
+    }
+
+    public JLabel getjLabel18() {
+        return jLabel18;
+    }
+
+    public JLabel getjLabel19() {
+        return jLabel19;
+    }
+
+    public JLabel getjLabel20() {
+        return jLabel20;
+    }
+
+    public JLabel getjLabel21() {
+        return jLabel21;
+    }
+
+    public JLabel getjLabel22() {
+        return jLabel22;
+    }
+
+    public JLabel getjLabel23() {
+        return jLabel23;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTextField getTxtEstCarnet() {
+        return txtEstCarnet;
+    }
+
+    public JTextField getTxtEstCorreo() {
+        return txtEstCorreo;
+    }
+
+    public JTextField getTxtEstNombre() {
+        return txtEstNombre;
+    }
+
+    public JTextField getTxtEstNumero() {
+        return txtEstNumero;
+    }
+
+    public JTextField getTxtSolCurso() {
+        return txtSolCurso;
+    }
+
+    public JTextField getTxtSolEstado() {
+        return txtSolEstado;
+    }
+
+    public JTextField getTxtSolFecha() {
+        return txtSolFecha;
+    }
+
+    public JTextField getTxtSolGrupo() {
+        return txtSolGrupo;
+    }
+
+    public JTextField getTxtSolID() {
+        return txtSolID;
+    }
+
+    public JTextField getTxtSolInconsistencia() {
+        return txtSolInconsistencia;
+    }
+
+    public JTextField getTxtSolNombreSolicitante() {
+        return txtSolNombreSolicitante;
+    }
+
+    public JTextField getTxtSolNumero() {
+        return txtSolNumero;
+    }
+
+    public JTextField getTxtSolPeriodo() {
+        return txtSolPeriodo;
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
