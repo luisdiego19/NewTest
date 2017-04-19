@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import jxl.Cell;
 import controlador.Excel;
 import datos.Periodo;
+import gui.BackOffice;
 import java.util.Date;
-import test.TestClass;
 
 public class uiPanelSolicitudes 
 {    
@@ -18,6 +18,18 @@ public class uiPanelSolicitudes
         this.panel = pPanel;
     }
                         
+    public void accionMenuBackOffice()            
+    {                       
+        BackOffice backOffice = new BackOffice();
+        backOffice.setDefaultCloseOperation(backOffice.DISPOSE_ON_CLOSE);
+        backOffice.setVisible(true);                 
+    }
+    
+    public void accionMenuConfiguraciones()
+    {
+        
+    }
+    
     public ArrayList<Solicitud> getDatosSolicitudes(String pPathLocal, String pIDHojaDrive)
     {
         try{

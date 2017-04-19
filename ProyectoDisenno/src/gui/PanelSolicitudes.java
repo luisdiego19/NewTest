@@ -5,11 +5,11 @@
  */
 package gui;
 
+import controlador.ui.uiPanelSolicitudes;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
-import javax.swing.table.TableColumn;
-import test.*;
+
 
 /**
  *
@@ -17,11 +17,15 @@ import test.*;
  */
 public class PanelSolicitudes extends javax.swing.JFrame {
 
+    
+    private uiPanelSolicitudes ui;
+    
     /**
      * Creates new form PanelSolicitudes
      */
     public PanelSolicitudes() {
         initComponents();
+        ui = new uiPanelSolicitudes(this);                
     }
 
     /**
@@ -133,7 +137,7 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerSolicitudActionPerformed
 
     private void menuItemBackOfficeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemBackOfficeActionPerformed
-        // TODO add your handling code here:
+        ui.accionMenuBackOffice();
     }//GEN-LAST:event_menuItemBackOfficeActionPerformed
 
     /**
