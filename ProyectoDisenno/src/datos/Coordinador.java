@@ -19,6 +19,7 @@ public class Coordinador extends Solicitante {
     
     public int tramitarSolicitud(Solicitud solicitud)
     {
-        return 0;
+        return 0; 
+        
     }        
 }
