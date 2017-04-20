@@ -130,7 +130,7 @@ public class TramiteSolicitud extends javax.swing.JFrame {
     }
 
     public void setSpnSeleccionarConsiderando(JSpinner spnSeleccionarConsiderando) {
-        this.spnSeleccionarConsiderando = spnSeleccionarConsiderando;
+        this.spnSeleccionarConsiderando = spnSeleccionarConsiderando;        
     }
     
     
@@ -160,14 +160,29 @@ public class TramiteSolicitud extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnModificarConsiderando.setText("Modificar");
+        btnModificarConsiderando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarConsiderandoActionPerformed(evt);
+            }
+        });
 
         areaTextAgregarConsiderando.setColumns(20);
         areaTextAgregarConsiderando.setRows(5);
         jScrollPane1.setViewportView(areaTextAgregarConsiderando);
 
         btnAgregarConsiderando.setText("Agregar");
+        btnAgregarConsiderando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarConsiderandoActionPerformed(evt);
+            }
+        });
 
         btnEliminarConsiderando.setText("Eliminar");
+        btnEliminarConsiderando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarConsiderandoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Seleccionar considerando #");
 
@@ -243,6 +258,18 @@ public class TramiteSolicitud extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarConsiderandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarConsiderandoActionPerformed
+        ui.accionAgregarConsiderando();
+    }//GEN-LAST:event_btnAgregarConsiderandoActionPerformed
+
+    private void btnEliminarConsiderandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarConsiderandoActionPerformed
+        ui.accionEliminarConsiderando();
+    }//GEN-LAST:event_btnEliminarConsiderandoActionPerformed
+
+    private void btnModificarConsiderandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarConsiderandoActionPerformed
+        ui.accionModificarConsiderando();
+    }//GEN-LAST:event_btnModificarConsiderandoActionPerformed
 
     /**
      * @param args the command line arguments

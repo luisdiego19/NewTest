@@ -1,7 +1,9 @@
 package datos;
 
+import java.io.Serializable;
 
-public class Solicitante {
+
+public class Solicitante implements Serializable {
     
     private String Identificacion;
     private String Nombre;

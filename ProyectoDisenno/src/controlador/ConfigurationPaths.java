@@ -64,7 +64,7 @@ public class ConfigurationPaths implements Serializable {
         this.pathGoogleDriveExcel = pathGoogleDriveExcel;
     }
 
-    public String getFormatoGoogleFriveExcel() {
+    public String getFormatoGoogleDriveExcel() {
         return formatoGoogleFriveExcel;
     }
 

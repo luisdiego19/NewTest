@@ -1,5 +1,7 @@
 package controlador.ui;
 
+import controlador.dao.DAOsolicitudes;
+import datos.EstadoEnum;
 import datos.Solicitud;
 import gui.TramiteSolicitud;
 import gui.VisionSolicitud;
@@ -15,7 +17,8 @@ public class uiVisionSolicitud
                     
     public void llenarDatos()
     {
-        String fecha = solicitud.getFecha().toString();
+        String codigo = solicitud.getCodigo();
+        String fecha = solicitud.getFecha().getDate().toString();
         String idSolicitante = solicitud.getIdentificacion();
         String nombreSolicitante = solicitud.getNombreSolicitante();
         String periodo = solicitud.getPeriodo().getNombre();
@@ -24,6 +27,7 @@ public class uiVisionSolicitud
         String inconsistencia = String.valueOf(solicitud.getInconsistencia());
         String estado = String.valueOf(solicitud.getEstado());
         
+        visionSolicitud.getTxtSolNumero().setText(codigo);
         visionSolicitud.getTxtSolFecha().setText(fecha);
         visionSolicitud.getTxtSolID().setText(idSolicitante);
         visionSolicitud.getTxtSolNombreSolicitante().setText(nombreSolicitante);
@@ -48,12 +52,22 @@ public class uiVisionSolicitud
     }
     
     public void accionBtnTramitar()
-    {
+    {        
         TramiteSolicitud tramiteSolicitud = new TramiteSolicitud();
         tramiteSolicitud.setDefaultCloseOperation(TramiteSolicitud.DISPOSE_ON_CLOSE);
         tramiteSolicitud.getUi().setSolicitud(solicitud);
         tramiteSolicitud.getUi().llenarDatos();
         tramiteSolicitud.setVisible(true);                
+    }
+    
+    public void accionBtnAnular()
+    {
+        solicitud.setEstado(EstadoEnum.ANULADA);
+        visionSolicitud.getTxtSolEstado().setText("ANULADA");
+        DAOsolicitudes dao = new DAOsolicitudes();
+        dao.actualizarSolicitud(solicitud);
+        visionSolicitud.getBtnTramitar().setVisible(false);
+        visionSolicitud.getBtnGenerarHTML().setVisible(false);
     }
     
     

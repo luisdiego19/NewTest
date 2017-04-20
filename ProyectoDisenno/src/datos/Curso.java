@@ -1,10 +1,16 @@
 package datos;
 
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable {
     
     public String codigoCurso;
     public String nombreCurso; 
     public CreditosEnum creditos;
+
+    public Curso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
 
     public Curso(String codigoCurso, String nombreCurso, CreditosEnum creditos) {
         this.codigoCurso = codigoCurso;

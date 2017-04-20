@@ -1,6 +1,8 @@
 package datos;
 
-public class Considerando {
+import java.io.Serializable;
+
+public class Considerando implements Serializable{
     
     public int Codigo; 
     public String Anotacion;
