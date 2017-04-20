@@ -23,7 +23,7 @@ public class CarteraDocente extends javax.swing.JFrame {
     public CarteraDocente() {
         initComponents();
         ui = new uiCarteraDocentes(this);
-        ui.populateTable();        
+        ui.populateTablaDocentes();        
     }
 
     public uiCarteraDocentes getUi() {
