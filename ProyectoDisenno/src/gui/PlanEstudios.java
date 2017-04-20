@@ -22,11 +22,12 @@ public class PlanEstudios extends javax.swing.JFrame {
     public PlanEstudios() {
         initComponents();
         ui = new uiPlanEstudios(this);
-        ui.populateTableCursos();
+        ui.populateTablaCursos();
+        ui.populateTablaOfertaAcademica();
     }
 
-    public JTable getTablaDocentes() {
-        return tablaDocentes;
+    public JTable getTablaOfertaAcademica() {
+        return tablaOfertaAcademica;
     }
 
     public JTable getTablaCursos() {
@@ -44,13 +45,13 @@ public class PlanEstudios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaDocentes = new javax.swing.JTable();
+        tablaOfertaAcademica = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaCursos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tablaDocentes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaOfertaAcademica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -58,10 +59,10 @@ public class PlanEstudios extends javax.swing.JFrame {
                 "Código", "Nombre", "Grupo", "ID Profesor", "Nombre Profesor", "Primera Fecha/Hora", "Segunda Fecha/Hora", "Aula"
             }
         ));
-        tablaDocentes.setCellSelectionEnabled(true);
-        tablaDocentes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(tablaDocentes);
-        tablaDocentes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tablaOfertaAcademica.setCellSelectionEnabled(true);
+        tablaOfertaAcademica.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(tablaOfertaAcademica);
+        tablaOfertaAcademica.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         tablaCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,6 +143,6 @@ public class PlanEstudios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tablaCursos;
-    private javax.swing.JTable tablaDocentes;
+    private javax.swing.JTable tablaOfertaAcademica;
     // End of variables declaration//GEN-END:variables
 }

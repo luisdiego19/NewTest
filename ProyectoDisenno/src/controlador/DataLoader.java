@@ -1,5 +1,6 @@
 package controlador;
 
+import controlador.dto.DTOofertaAcademica;
 import datos.CreditosEnum;
 import datos.Curso;
 import datos.Docente;
@@ -32,8 +33,7 @@ public class DataLoader
     public ArrayList<Curso> cargarCursos()
     {
         try{
-            String path = ConfigurationPaths.getInstance().getPathCursos();
-            System.out.println(path);
+            String path = ConfigurationPaths.getInstance().getPathCursos();       
             Excel excel = new Excel(path);
             ArrayList<Curso> listaCursos = new ArrayList<>();
             int rowCount = excel.getSheet().getRows();
@@ -45,10 +45,10 @@ public class DataLoader
                 {                    
                     sheetCells.add(excel.getSheet().getCell(column, row));   
                 }
-                String codigoCurso =  sheetCells.get(0).getContents();
-                String nombre = sheetCells.get(1).getContents();
+                String codigoCurso = sheetCells.get(0).getContents();
+                String nombreCurso = sheetCells.get(1).getContents();
                 CreditosEnum creditos = CreditosEnum.valueOf(sheetCells.get(2).getContents());
-                Curso curso = new Curso(codigoCurso, nombre, creditos);
+                Curso curso = new Curso(codigoCurso, nombreCurso, creditos);
                 listaCursos.add(curso);
             }
             return listaCursos;
@@ -59,7 +59,41 @@ public class DataLoader
         }
     }
     
-    
+    public ArrayList<DTOofertaAcademica> cargarOfertaAcademica()
+    {
+        try{
+            String path = ConfigurationPaths.getInstance().getPathOfertaAcademica();
+            Excel excel = new Excel(path);
+            ArrayList<DTOofertaAcademica> listaOferta = new ArrayList<>();
+            int rowCount = excel.getSheet().getRows();
+            int columnCount = excel.getSheet().getColumns();
+            for(int row = 1; row < rowCount; row ++)
+            {
+                ArrayList<Cell> sheetCells = new ArrayList<>();
+                for(int column = 0; column < columnCount; column++)
+                {
+                    sheetCells.add(excel.getSheet().getCell(column, row));                       
+                }
+                String codigoCurso = sheetCells.get(0).getContents();
+                String nombreCurso = sheetCells.get(1).getContents();
+                String grupo = sheetCells.get(2).getContents();
+                String idProfesor = sheetCells.get(3).getContents();
+                String nombreProfesor = sheetCells.get(4).getContents();
+                String primeraFechaHora = sheetCells.get(5).getContents();
+                String segundaFechaHora = sheetCells.get(6).getContents();
+                String aula = sheetCells.get(7).getContents();
+                DTOofertaAcademica dto = new DTOofertaAcademica(codigoCurso, nombreCurso, grupo, idProfesor,                        
+                nombreProfesor ,primeraFechaHora, segundaFechaHora, aula);                
+                listaOferta.add(dto);
+            }    
+
+        return listaOferta;
+        }catch (Exception ex)
+        {
+            return null;
+        }                        
+    }
+            
     public ArrayList<Docente> cargarCarteraDocente()
     {
         try{
@@ -97,6 +131,7 @@ public class DataLoader
         ConfigurationPaths.getInstance(); 
         ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");    
         ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
+          ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
         FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);          
         objectOutputStream.writeObject(ConfigurationPaths.getInstance());
