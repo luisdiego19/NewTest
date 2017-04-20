@@ -18,7 +18,7 @@ import datos.Estudiante;
 import datos.FechaHora;
 import datos.Grupo;
 import datos.Periodo;
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import datos.InconsistenciaEnum;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -27,15 +27,15 @@ import java.util.List;
 
 public class DataLoader {
 
-    public ArrayList<Solicitud> cargaInicialSolicitudes() {
+    public ArrayList<DTOSolicitud> cargaInicialSolicitudes() {
         try {
             FileInputStream fileInputStream = new FileInputStream(ConfigurationPaths.getInstance().getPathSolicitudesLocal());
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            ArrayList<Solicitud> solicitudesLocales = new ArrayList<>();            
+            ArrayList<DTOSolicitud> solicitudesLocales = new ArrayList<>();            
             boolean cont = true;
             while (cont) {
                 try{
-                Solicitud solicitud = (Solicitud) objectInputStream.readObject();
+                DTOSolicitud solicitud = (DTOSolicitud) objectInputStream.readObject();
                 
                 if (solicitud != null) {
                     solicitudesLocales.add(solicitud);
@@ -52,11 +52,11 @@ public class DataLoader {
             objectInputStream.close();
 
             
-            ArrayList<Solicitud> solicitudesNuevas = cargarSolicitudesGoogle();
+            ArrayList<DTOSolicitud> solicitudesNuevas = cargarSolicitudesGoogle();
 
-            for (Solicitud solicitudGoogle : solicitudesNuevas) {
+            for (DTOSolicitud solicitudGoogle : solicitudesNuevas) {
                 boolean existe = false;
-                for (Solicitud solicitudLocal : solicitudesLocales) {
+                for (DTOSolicitud solicitudLocal : solicitudesLocales) {
                     if (solicitudLocal.getCodigo().equals(solicitudGoogle.getCodigo())) {
                         existe = true;
                     }
@@ -76,12 +76,12 @@ public class DataLoader {
         }
     }
 
-    public ArrayList<Solicitud> cargarSolicitudesGoogle() {
+    public ArrayList<DTOSolicitud> cargarSolicitudesGoogle() {
         String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
         String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleDriveExcel();
          GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");
         List<List<Object>> values = forms.getResponse().getValues();
-        ArrayList<Solicitud> solicitudes = new ArrayList<>();
+        ArrayList<DTOSolicitud> solicitudes = new ArrayList<>();
         if (values == null || values.size() == 0) {
             System.out.println("No data found.");
         } else {
@@ -108,7 +108,7 @@ public class DataLoader {
                     Grupo grupo = new Grupo(numeroGrupo);
                     InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(10)));
                     String detallesInconsistencia = String.valueOf(row.get(11));
-                    Solicitud solicitud = new Solicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
+                    DTOSolicitud solicitud = new DTOSolicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
                             detallesInconsistencia, EstadoEnum.PENDIENTE
                     );
                     solicitud.setCodigo(solicitud.generarCodigo());
@@ -220,6 +220,8 @@ public class DataLoader {
     public static void main(String args[]) {
         try {
             ConfigurationPaths.getInstance();
+            ConfigurationPaths.getInstance().setDirectorAdminisionRegistro("Máster Geovanni Rojas Rodríguez");
+            ConfigurationPaths.getInstance().setDirectorEscuelaComputacion("Ing. Mauricio Arroyo Herrera");
             ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\profesores.xls");
             ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\cursos.xls");
             ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ofertaacademica.xls");

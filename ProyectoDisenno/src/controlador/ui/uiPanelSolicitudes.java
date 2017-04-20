@@ -9,7 +9,7 @@ import gui.Estadisticas;
 import gui.PlanEstudios;
 import gui.VisionSolicitud;
 import controlador.Datos;
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import javax.swing.table.DefaultTableModel;
 
 public class uiPanelSolicitudes 
@@ -84,7 +84,7 @@ public class uiPanelSolicitudes
     {
         VisionSolicitud visionSolicitud = new VisionSolicitud();
         visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE); 
-        Solicitud solicitud = Datos.getInstance().getSolicitudCodigo(panelSolicitudes.getTxtNumeroSolicitud().getText());
+        DTOSolicitud solicitud = Datos.getInstance().getSolicitudCodigo(panelSolicitudes.getTxtNumeroSolicitud().getText());
         visionSolicitud.getUi().setSolicitud(solicitud);
         visionSolicitud.getUi().llenarDatos();
         visionSolicitud.setVisible(true);        

@@ -12,12 +12,12 @@ public class Coordinador extends Solicitante {
         
     }
     
-    public void agregarAnotacion(Solicitud solicitud)
+    public void agregarAnotacion(DTOSolicitud solicitud)
     {
         
     }
     
-    public int tramitarSolicitud(Solicitud solicitud)
+    public int tramitarSolicitud(DTOSolicitud solicitud)
     {
         return 0; 
         

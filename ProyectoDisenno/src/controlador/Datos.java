@@ -1,12 +1,12 @@
 package controlador;
 
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import java.util.ArrayList;
 
 public class Datos 
 {
     
-    private ArrayList<Solicitud> solicitudes;
+    private ArrayList<DTOSolicitud> solicitudes;
     private static Datos instance; 
     
     private Datos()
@@ -22,9 +22,9 @@ public class Datos
     }
     
 
-     public Solicitud getSolicitudCodigo(String pCodigo)
+     public DTOSolicitud getSolicitudCodigo(String pCodigo)
      {
-         for(Solicitud solicitud: solicitudes)
+         for(DTOSolicitud solicitud: solicitudes)
          {
              if(solicitud.getCodigo().equals(pCodigo))
              {
@@ -35,11 +35,11 @@ public class Datos
          return null;
      }
     
-    public ArrayList<Solicitud> getSolicitudes() {
+    public ArrayList<DTOSolicitud> getSolicitudes() {
         return solicitudes;
     }
 
-    public void setSolicitudes(ArrayList<Solicitud> solicitudes) {
+    public void setSolicitudes(ArrayList<DTOSolicitud> solicitudes) {
         this.solicitudes = solicitudes;
     }                        
 }

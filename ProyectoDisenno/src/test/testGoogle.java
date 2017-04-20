@@ -11,7 +11,7 @@ import datos.FechaHora;
 import datos.Grupo;
 import datos.InconsistenciaEnum;
 import datos.Periodo;
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -35,8 +35,8 @@ public class testGoogle {
             System.out.println("Error " + ex.getLocalizedMessage());
         }*/
         try{
-        ArrayList<Solicitud> nuevas = loader.cargaInicialSolicitudes();
-        for(Solicitud solicitud: nuevas)
+        ArrayList<DTOSolicitud> nuevas = loader.cargaInicialSolicitudes();
+        for(DTOSolicitud solicitud: nuevas)
         {
             System.out.println(solicitud.getCodigo());
         }        
@@ -44,8 +44,8 @@ public class testGoogle {
         DAOsolicitudes dao = new DAOsolicitudes(); 
         dao.salvarSolicitudesLocal(nuevas);
         
-        ArrayList<Solicitud> nuevas3 = loader.cargaInicialSolicitudes();
-        for(Solicitud solicitud: nuevas3)
+        ArrayList<DTOSolicitud> nuevas3 = loader.cargaInicialSolicitudes();
+        for(DTOSolicitud solicitud: nuevas3)
         {
             System.out.println(solicitud.getNombreSolicitante());
         }     
@@ -55,12 +55,12 @@ public class testGoogle {
         }
     }
     
-    public static ArrayList<Solicitud> cargarSolicitudesGoogle() {
+    public static ArrayList<DTOSolicitud> cargarSolicitudesGoogle() {
         String hojaID = "1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE";
         String hojaFormato = "Sheet1!A2:L";
         GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");
         List<List<Object>> values = forms.getResponse().getValues();
-        ArrayList<Solicitud> solicitudes = new ArrayList<>();
+        ArrayList<DTOSolicitud> solicitudes = new ArrayList<>();
         if (values == null || values.size() == 0) {
             System.out.println("No data found.");
         } else {
@@ -87,7 +87,7 @@ public class testGoogle {
                     Grupo grupo = new Grupo(numeroGrupo);
                     InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(10)));
                     String detallesInconsistencia = String.valueOf(row.get(11));
-                    Solicitud solicitud = new Solicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
+                    DTOSolicitud solicitud = new DTOSolicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
                             detallesInconsistencia, EstadoEnum.PENDIENTE
                     );
                     solicitud.setCodigo(solicitud.generarCodigo());

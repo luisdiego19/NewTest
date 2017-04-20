@@ -19,7 +19,7 @@ public class Solicitante implements Serializable {
         this.Telefono = Telefono;
     }
            
-    public Solicitud registrarSolicitud( 
+    public DTOSolicitud registrarSolicitud( 
             Periodo periodoLectivo,
             int codigoCurso,
             Estudiante estudiante, 

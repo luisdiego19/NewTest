@@ -3,14 +3,14 @@ package controlador.ui;
 import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
 import datos.EstadoEnum;
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import gui.TramiteSolicitud;
 import gui.VisionSolicitud;
 
 public class uiVisionSolicitud 
 {
     private final VisionSolicitud visionSolicitud; 
-    private Solicitud solicitud;
+    private DTOSolicitud solicitud;
     private Controlador control = new Controlador();
 
     public uiVisionSolicitud(VisionSolicitud visioSolicitud) {
@@ -73,7 +73,7 @@ public class uiVisionSolicitud
     }
     
     
-    public void setSolicitud(Solicitud solicitud) {
+    public void setSolicitud(DTOSolicitud solicitud) {
         this.solicitud = solicitud;
     }   
 }

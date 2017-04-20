@@ -3,13 +3,13 @@ package controlador.ui;
 import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
 import datos.Considerando;
-import datos.Solicitud;
+import datos.DTOSolicitud;
 import gui.TramiteSolicitud;
 
 public class uiTramiteSolicitud {
     
     private TramiteSolicitud tramiteSolicitud;
-    private Solicitud solicitud;
+    private DTOSolicitud solicitud;
     private Controlador controlador = new Controlador();
 
     public void llenarDatos()
@@ -50,7 +50,10 @@ public class uiTramiteSolicitud {
         dao.actualizarSolicitud(solicitud);  
         llenarDatos();
     }
-        
+    public void generarPDF()
+    {
+        controlador.generarPDF(solicitud);
+    }
     public uiTramiteSolicitud(TramiteSolicitud tramiteSolicitud) {
         this.tramiteSolicitud = tramiteSolicitud;
     }
@@ -63,11 +66,11 @@ public class uiTramiteSolicitud {
         this.tramiteSolicitud = tramiteSolicitud;
     }
 
-    public Solicitud getSolicitud() {
+    public DTOSolicitud getSolicitud() {
         return solicitud;
     }
 
-    public void setSolicitud(Solicitud solicitud) {
+    public void setSolicitud(DTOSolicitud solicitud) {
         this.solicitud = solicitud;
     }        
 }
