@@ -124,7 +124,7 @@ public class DataLoader {
 
     public void cargarPrimerosDatos() {
         try {
-            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
+            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             ConfigurationPaths.setInstance((ConfigurationPaths) objectInputStream.readObject());
             fileInputStream.close();
@@ -220,13 +220,13 @@ public class DataLoader {
     public static void main(String args[]) {
         try {
             ConfigurationPaths.getInstance();
-            ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");
-            ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
-            ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
-            ConfigurationPaths.getInstance().setPathSolicitudesLocal("C:\\Users\\USER\\Desktop\\ExcelDiseno\\Solicitudes.ld");
+            ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\profesores.xls");
+            ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\cursos.xls");
+            ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
+            ConfigurationPaths.getInstance().setPathSolicitudesLocal("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\Solicitudes.ld");
             ConfigurationPaths.getInstance().setPathGoogleDriveExcel("1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE");
             ConfigurationPaths.getInstance().setFormatoGoogleFriveExcel("Sheet1!A2:L");
-            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
+            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
             objectOutputStream.writeObject(ConfigurationPaths.getInstance());

@@ -83,7 +83,7 @@ public class uiPanelSolicitudes
     public void accionBtnVerSolicitud()
     {
         VisionSolicitud visionSolicitud = new VisionSolicitud();
-       visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE); 
+        visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE); 
         Solicitud solicitud = Datos.getInstance().getSolicitudCodigo(panelSolicitudes.getTxtNumeroSolicitud().getText());
         visionSolicitud.getUi().setSolicitud(solicitud);
         visionSolicitud.getUi().llenarDatos();

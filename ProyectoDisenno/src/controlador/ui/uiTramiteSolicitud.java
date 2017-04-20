@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
 import datos.Considerando;
 import datos.Solicitud;
@@ -9,6 +10,7 @@ public class uiTramiteSolicitud {
     
     private TramiteSolicitud tramiteSolicitud;
     private Solicitud solicitud;
+    private Controlador controlador = new Controlador();
 
     public void llenarDatos()
     {
@@ -24,10 +26,8 @@ public class uiTramiteSolicitud {
     public void accionModificarConsiderando()
     {
         int numeroConsiderando = (Integer) tramiteSolicitud.getSpnSeleccionarConsiderando().getValue() - 1;
-        String anotacion = tramiteSolicitud.getAreaTextModificarConsiderando().getText();
-        solicitud.getConsiderandos().get(numeroConsiderando).setAnotacion(anotacion);
-        DAOsolicitudes dao = new DAOsolicitudes();
-        dao.actualizarSolicitud(solicitud);     
+        String anotacion = tramiteSolicitud.getAreaTextModificarConsiderando().getText();        
+        controlador.accionModificarConsiderando(solicitud, numeroConsiderando, anotacion);        
         llenarDatos();
     }
     

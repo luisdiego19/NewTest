@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
 import datos.EstadoEnum;
 import datos.Solicitud;
@@ -10,6 +11,7 @@ public class uiVisionSolicitud
 {
     private final VisionSolicitud visionSolicitud; 
     private Solicitud solicitud;
+    private Controlador control = new Controlador();
 
     public uiVisionSolicitud(VisionSolicitud visioSolicitud) {
         this.visionSolicitud = visioSolicitud; 
@@ -54,7 +56,7 @@ public class uiVisionSolicitud
     public void accionBtnTramitar()
     {        
         TramiteSolicitud tramiteSolicitud = new TramiteSolicitud();
-        tramiteSolicitud.setDefaultCloseOperation(TramiteSolicitud.DISPOSE_ON_CLOSE);
+        tramiteSolicitud.setDefaultCloseOperation(TramiteSolicitud.DISPOSE_ON_CLOSE);        
         tramiteSolicitud.getUi().setSolicitud(solicitud);
         tramiteSolicitud.getUi().llenarDatos();
         tramiteSolicitud.setVisible(true);                
