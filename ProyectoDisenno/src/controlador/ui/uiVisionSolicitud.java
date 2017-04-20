@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import controlador.dao.DAOsolicitudes;
 import datos.EstadoEnum;
 import datos.Solicitud;
 import gui.TramiteSolicitud;
@@ -51,7 +52,7 @@ public class uiVisionSolicitud
     }
     
     public void accionBtnTramitar()
-    {
+    {        
         TramiteSolicitud tramiteSolicitud = new TramiteSolicitud();
         tramiteSolicitud.setDefaultCloseOperation(TramiteSolicitud.DISPOSE_ON_CLOSE);
         tramiteSolicitud.getUi().setSolicitud(solicitud);
@@ -63,6 +64,8 @@ public class uiVisionSolicitud
     {
         solicitud.setEstado(EstadoEnum.ANULADA);
         visionSolicitud.getTxtSolEstado().setText("ANULADA");
+        DAOsolicitudes dao = new DAOsolicitudes();
+        dao.actualizarSolicitud(solicitud);
         visionSolicitud.getBtnTramitar().setVisible(false);
         visionSolicitud.getBtnGenerarHTML().setVisible(false);
     }

@@ -27,7 +27,8 @@ public class uiTramiteSolicitud {
         String anotacion = tramiteSolicitud.getAreaTextModificarConsiderando().getText();
         solicitud.getConsiderandos().get(numeroConsiderando).setAnotacion(anotacion);
         DAOsolicitudes dao = new DAOsolicitudes();
-        dao.actualizarSolicitud(solicitud);        
+        dao.actualizarSolicitud(solicitud);     
+        llenarDatos();
     }
     
     public void accionAgregarConsiderando()
@@ -37,7 +38,8 @@ public class uiTramiteSolicitud {
         Considerando considerando = new Considerando(numeroConsiderando, anotacion);
         solicitud.getConsiderandos().add(considerando);
         DAOsolicitudes dao = new DAOsolicitudes();
-        dao.actualizarSolicitud(solicitud);    
+        dao.actualizarSolicitud(solicitud);   
+        llenarDatos();
     }
     
     public void accionEliminarConsiderando()
@@ -45,7 +47,8 @@ public class uiTramiteSolicitud {
         int numeroConsiderando = (Integer) tramiteSolicitud.getSpnSeleccionarConsiderando().getValue() - 1;
         solicitud.getConsiderandos().remove(numeroConsiderando);
         DAOsolicitudes dao = new DAOsolicitudes();
-        dao.actualizarSolicitud(solicitud);    
+        dao.actualizarSolicitud(solicitud);  
+        llenarDatos();
     }
         
     public uiTramiteSolicitud(TramiteSolicitud tramiteSolicitud) {
