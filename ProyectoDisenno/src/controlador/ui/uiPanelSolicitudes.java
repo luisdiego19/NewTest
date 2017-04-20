@@ -6,18 +6,66 @@ import java.util.ArrayList;
 import jxl.Cell;
 import controlador.Excel;
 import datos.Periodo;
+import gui.BackOffice;
+import gui.CarteraDocente;
+import gui.Configuraciones;
+import gui.Estadisticas;
+import gui.PlanEstudios;
+import gui.VisionSolicitud;
 import java.util.Date;
-import test.TestClass;
 
 public class uiPanelSolicitudes 
 {    
-    private final PanelSolicitudes panel;
+    private final PanelSolicitudes panelSolicitudes;
     
     public uiPanelSolicitudes(PanelSolicitudes pPanel)            
     {
-        this.panel = pPanel;
+        this.panelSolicitudes = pPanel;
     }
                         
+    public void accionMenuBackOffice()            
+    {                       
+        BackOffice backOffice = new BackOffice();
+        backOffice.setDefaultCloseOperation(BackOffice.DISPOSE_ON_CLOSE);
+        backOffice.setVisible(true);                 
+    }
+    
+    public void accionMenuConfiguraciones()
+    {
+        Configuraciones configuraciones = new Configuraciones();
+        configuraciones.setDefaultCloseOperation(Configuraciones.DISPOSE_ON_CLOSE);
+        configuraciones.setVisible(true);        
+    }
+    
+    public void accionMenuEstadisticas()
+    {
+        Estadisticas estadisticas = new Estadisticas();
+        estadisticas.setDefaultCloseOperation(Estadisticas.DISPOSE_ON_CLOSE);
+        estadisticas.setVisible(true); 
+    }
+    
+    public void accionMenuCarteraDocente()
+    {
+        CarteraDocente carteraDocente = new CarteraDocente();
+        carteraDocente.setDefaultCloseOperation(CarteraDocente.DISPOSE_ON_CLOSE);
+        carteraDocente.setVisible(true); 
+    }
+    
+    public void accionMenuPlanEstudios()
+    {
+        PlanEstudios planEstudios = new PlanEstudios();
+        planEstudios.setDefaultCloseOperation(PlanEstudios.DISPOSE_ON_CLOSE);
+        planEstudios.setVisible(true);
+    }
+                       
+    public void accionBtnVerSolicitud()
+    {
+        VisionSolicitud visionSolicitud = new VisionSolicitud();
+        visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE);
+        // TODO visionSolicitud.getUi().setSolicitud(solicitud);
+        visionSolicitud.setVisible(true);        
+    }
+        
     public ArrayList<Solicitud> getDatosSolicitudes(String pPathLocal, String pIDHojaDrive)
     {
         try{

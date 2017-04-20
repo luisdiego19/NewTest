@@ -3,8 +3,8 @@ package datos;
 
 public class Coordinador extends Solicitante {
     
-    public Coordinador(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono, int Carnet) {
-        super(Identificacion, Nombre, Apellidos, Correo, Telefono, Carnet);
+    public Coordinador(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono) {
+        super(Identificacion, Nombre, Apellidos, Correo, Telefono);
     }
     
     public void verSolicitud(int codigoSolicitud)
@@ -19,6 +19,7 @@ public class Coordinador extends Solicitante {
     
     public int tramitarSolicitud(Solicitud solicitud)
     {
-        return 0;
+        return 0; 
+        
     }        
 }

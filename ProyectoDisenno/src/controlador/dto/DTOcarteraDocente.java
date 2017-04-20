@@ -1,36 +1,22 @@
-package datos;
 
+package controlador.dto;
 
-public class Solicitante {
-    
+public class DTOcarteraDocente 
+{
     private String Identificacion;
     private String Nombre;
     private String Apellidos;
     private String Correo;
     private String Telefono; 
 
-    public Solicitante(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono) {
+    public DTOcarteraDocente(String Identificacion, String Nombre, String Apellidos, String Correo, String Telefono) {
         this.Identificacion = Identificacion;
         this.Nombre = Nombre;
         this.Apellidos = Apellidos;
         this.Correo = Correo;
         this.Telefono = Telefono;
     }
-           
-    public Solicitud registrarSolicitud( 
-            Periodo periodoLectivo,
-            int codigoCurso,
-            Estudiante estudiante, 
-            InconsistenciaEnum inconsistencia, 
-            String descripcion,
-            Object evidencia
-            )
-    {               
-        SolicitudStrategy strategy = null;
-        return strategy.registrarSolicitud(this, periodoLectivo, codigoCurso, estudiante, inconsistencia, descripcion, evidencia);
-    }
-    
-    
+
     public String getIdentificacion() {
         return Identificacion;
     }
@@ -70,5 +56,5 @@ public class Solicitante {
     public void setTelefono(String Telefono) {
         this.Telefono = Telefono;
     }
-                 
+            
 }
