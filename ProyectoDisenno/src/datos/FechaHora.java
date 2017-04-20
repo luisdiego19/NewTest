@@ -1,8 +1,9 @@
 package datos;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class FechaHora 
+public class FechaHora implements Serializable
 {
     private Date date;     
     private String time; 

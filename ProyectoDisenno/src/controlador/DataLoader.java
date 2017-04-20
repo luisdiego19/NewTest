@@ -31,19 +31,27 @@ public class DataLoader {
         try {
             FileInputStream fileInputStream = new FileInputStream(ConfigurationPaths.getInstance().getPathSolicitudesLocal());
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            ArrayList<Solicitud> solicitudesLocales = new ArrayList<>();
+            ArrayList<Solicitud> solicitudesLocales = new ArrayList<>();            
             boolean cont = true;
             while (cont) {
+                try{
                 Solicitud solicitud = (Solicitud) objectInputStream.readObject();
+                
                 if (solicitud != null) {
                     solicitudesLocales.add(solicitud);
                 } else {
                     cont = false;
                 }
+                }catch(Exception ex)
+                {
+                    break;
+                }                
             }
+                                    
             fileInputStream.close();
             objectInputStream.close();
 
+            
             ArrayList<Solicitud> solicitudesNuevas = cargarSolicitudesGoogle();
 
             for (Solicitud solicitudGoogle : solicitudesNuevas) {
@@ -56,7 +64,8 @@ public class DataLoader {
                 if (!existe) {
                     solicitudesLocales.add(solicitudGoogle);
                 }
-            }
+            } 
+            
             DAOsolicitudes dao = new DAOsolicitudes();
             dao.salvarSolicitudesLocal(solicitudesLocales);
             return solicitudesLocales;
@@ -70,7 +79,7 @@ public class DataLoader {
     public ArrayList<Solicitud> cargarSolicitudesGoogle() {
         String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
         String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleDriveExcel();
-        GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");
+         GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");
         List<List<Object>> values = forms.getResponse().getValues();
         ArrayList<Solicitud> solicitudes = new ArrayList<>();
         if (values == null || values.size() == 0) {
@@ -78,27 +87,27 @@ public class DataLoader {
         } else {
             values.forEach((row) -> {
                 try {
-                    String fechaExcel = String.valueOf(row.get(0));
+                    String fechaExcel = String.valueOf(row.get(0));//.replace("/", "-");   
                     String fecha = fechaExcel.split("\\s+")[0];
-                    String tiempo = fechaExcel.split("\\s+")[1];
-                    DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                    String tiempo = fechaExcel.split("\\s+")[1];                    
+                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                     Date fechaDate = (Date) df.parse(fecha);
                     FechaHora fechaHora = new FechaHora(fechaDate, tiempo);
                     String idSolicitante = String.valueOf(row.get(2));
                     String nombreSolicitante = String.valueOf(row.get(3));
                     String carnetEstudiante = String.valueOf(row.get(4));
                     String nombreEstudiante = String.valueOf(row.get(5));
-                    String correoEstudiante = String.valueOf(row.get(6));
-                    String numeroEstudiante = String.valueOf(row.get(7));
+                    String correoEstudiante = String.valueOf(row.get(5));
+                    String numeroEstudiante = String.valueOf(row.get(6));
                     Estudiante estudiante = new Estudiante(" ", nombreEstudiante, " ", correoEstudiante, numeroEstudiante, Integer.parseInt(carnetEstudiante));
-                    String periodoNombre = String.valueOf(row.get(8));
+                    String periodoNombre = String.valueOf(row.get(7));
                     Periodo periodo = new Periodo(periodoNombre);
-                    String cursoNombre = String.valueOf(row.get(9));
+                    String cursoNombre = String.valueOf(row.get(8));
                     Curso curso = new Curso(cursoNombre);
-                    int numeroGrupo = Integer.parseInt(String.valueOf(row.get(10)));
+                    int numeroGrupo = Integer.parseInt(String.valueOf(row.get(9)));
                     Grupo grupo = new Grupo(numeroGrupo);
-                    InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(11)));
-                    String detallesInconsistencia = String.valueOf(row.get(12));
+                    InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(10)));
+                    String detallesInconsistencia = String.valueOf(row.get(11));
                     Solicitud solicitud = new Solicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
                             detallesInconsistencia, EstadoEnum.PENDIENTE
                     );
@@ -207,13 +216,16 @@ public class DataLoader {
         }
     }
 
-    /*
+    
     public static void main(String args[]) {
         try {
             ConfigurationPaths.getInstance();
             ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");
             ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
             ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
+            ConfigurationPaths.getInstance().setPathSolicitudesLocal("C:\\Users\\USER\\Desktop\\ExcelDiseno\\Solicitudes.ld");
+            ConfigurationPaths.getInstance().setPathGoogleDriveExcel("1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE");
+            ConfigurationPaths.getInstance().setFormatoGoogleFriveExcel("Sheet1!A2:L");
             FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
@@ -223,6 +235,6 @@ public class DataLoader {
         } catch (Exception ex) {
             System.out.println(ex.getLocalizedMessage());
         }
-    }*/
+    }
 
 }

@@ -1,9 +1,10 @@
 package datos;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class Periodo {
+public class Periodo implements Serializable{
     
     private int ID; 
     private String Nombre;

@@ -2,6 +2,8 @@ package test;
 
 import com.my.GoogleForms;
 import controlador.ConfigurationPaths;
+import controlador.DataLoader;
+import controlador.dao.DAOsolicitudes;
 import datos.Curso;
 import datos.EstadoEnum;
 import datos.Estudiante;
@@ -10,6 +12,7 @@ import datos.Grupo;
 import datos.InconsistenciaEnum;
 import datos.Periodo;
 import datos.Solicitud;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,8 +23,23 @@ public class testGoogle {
     
     public static void main(String args[])
     {
-        ArrayList<Solicitud> test = cargarSolicitudesGoogle();        
-        System.out.println(test.get(0).getCodigo());
+        DataLoader loader = new DataLoader();
+        loader.cargarPrimerosDatos();
+        /*
+        ArrayList<Solicitud> test = cargarSolicitudesGoogle(); 
+        DAOsolicitudes dao = new DAOsolicitudes();
+        try{
+        dao.salvarSolicitudesLocal(test);
+        } catch(IOException ex)
+        {
+            System.out.println("Error " + ex.getLocalizedMessage());
+        }*/
+        ArrayList<Solicitud> nuevas = loader.cargaInicialSolicitudes();
+        for(Solicitud solicitud: nuevas)
+        {
+            System.out.println(solicitud.getCodigo());
+        }        
+                
     }
     
     public static ArrayList<Solicitud> cargarSolicitudesGoogle() {
@@ -35,8 +53,7 @@ public class testGoogle {
         } else {
             values.forEach((row) -> {
                 try {
-                    String fechaExcel = String.valueOf(row.get(0));//.replace("/", "-");
-                    System.out.println(fechaExcel);
+                    String fechaExcel = String.valueOf(row.get(0));//.replace("/", "-");   
                     String fecha = fechaExcel.split("\\s+")[0];
                     String tiempo = fechaExcel.split("\\s+")[1];                    
                     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");

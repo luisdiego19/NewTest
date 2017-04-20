@@ -1,6 +1,8 @@
 package datos;
 
-public class Grupo {
+import java.io.Serializable;
+
+public class Grupo implements Serializable {
     
     private int Codigo; 
     private int NumeroGrupo; 

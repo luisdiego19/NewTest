@@ -46,7 +46,7 @@ public class DAOsolicitudes {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         for (Solicitud solicitud : solicitudes) {
             objectOutputStream.writeObject(solicitud);
-        }
+        }     
         fileOutputStream.close();
         objectOutputStream.close();
     }
