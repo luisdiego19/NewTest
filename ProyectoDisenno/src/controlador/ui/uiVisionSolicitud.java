@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import controlador.ConfigurationPaths;
 import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
 import controlador.dto.DTOResolucion;
@@ -13,7 +14,7 @@ public class uiVisionSolicitud
 {
     private final VisionSolicitud visionSolicitud; 
     private DTOSolicitud solicitud;
-    private Controlador control = new Controlador();
+    private Controlador control = new Controlador();    
 
     public uiVisionSolicitud(VisionSolicitud visioSolicitud) {
         this.visionSolicitud = visioSolicitud; 
@@ -91,7 +92,35 @@ public class uiVisionSolicitud
         resolucion.setCarneEstudiante(solicitud.getEstudiante().getCarnet());
         resolucion.setNombreEstudiante(solicitud.getEstudiante().getNombre()+ " " + solicitud.getEstudiante().getApellidos());
         resolucion.setConsiderados(solicitud.getConsiderandos());
-        
+        resolucion.setIdSolicitud(solicitud.getCodigo());
+        resolucion.setTipoCaso(solicitud.getInconsistencia());
+        resolucion.setiDcurso(solicitud.getCurso().codigoCurso);
+        resolucion.setNombreCurso(solicitud.getCurso().getNombreCurso());
+        resolucion.setDirectorAdmision(ConfigurationPaths.getInstance().getDirectorAdminisionRegistro());
+        resolucion.setDirectorCarrera(ConfigurationPaths.getInstance().getDirectorEscuelaComputacion());
+        resolucion.setPeriodo(solicitud.getPeriodo().getNombre());
         control.generarDocumento(resolucion, 1);
+    }
+    
+    public void generarHTML()
+    {
+        Date date = new Date();
+        date = solicitud.getFecha().getDate();
+        String annoTemp = date.toString().substring(date.toString().length() - 4, date.toString().length());
+        int anno = Integer.valueOf(annoTemp);
+        
+        DTOResolucion resolucion = new DTOResolucion();        
+        resolucion.setAnno(anno);
+        resolucion.setCarneEstudiante(solicitud.getEstudiante().getCarnet());
+        resolucion.setNombreEstudiante(solicitud.getEstudiante().getNombre()+ " " + solicitud.getEstudiante().getApellidos());
+        resolucion.setConsiderados(solicitud.getConsiderandos());
+        resolucion.setIdSolicitud(solicitud.getCodigo());
+        resolucion.setTipoCaso(solicitud.getInconsistencia());
+        resolucion.setiDcurso(solicitud.getCurso().codigoCurso);
+        resolucion.setNombreCurso(solicitud.getCurso().getNombreCurso());
+        resolucion.setDirectorAdmision(ConfigurationPaths.getInstance().getDirectorAdminisionRegistro());
+        resolucion.setDirectorCarrera(ConfigurationPaths.getInstance().getDirectorEscuelaComputacion());
+        resolucion.setPeriodo(solicitud.getPeriodo().getNombre());
+        control.generarDocumento(resolucion, 2);
     }
 }

@@ -6,6 +6,7 @@
 package controlador.dto;
 
 import datos.Considerando;
+import datos.InconsistenciaEnum;
 import java.util.ArrayList;
 
 /**
@@ -26,12 +27,12 @@ public class DTOResolucion {
     private String resultado;
     private ArrayList<Considerando> considerados;
     private String resolucion;
-    private String tipoCaso;
+    private InconsistenciaEnum tipoCaso;
     private String profesor;
     private int anno;
     private String directorAdmision;
     
-    public DTOResolucion(String pFecha,String pDirector,String pTipoCaso,String pProfesor,int pAnno,String pIdSol,int pNumeroRes, String pIdCurso,String pNombreCurso, int pGrupo, 
+    public DTOResolucion(String pFecha,String pDirector,InconsistenciaEnum pTipoCaso,String pProfesor,int pAnno,String pIdSol,int pNumeroRes, String pIdCurso,String pNombreCurso, int pGrupo, 
             String pEstudiante, int pCarne, String pPeriodo,String pResultado, ArrayList<Considerando> pConsiderados,String pResolucion,String pDirectorAdmision) {
         this.fecha = pFecha;
         this.directorCarrera = pDirector;
@@ -227,9 +228,9 @@ public class DTOResolucion {
      * @return the tipoCaso
      */
     public String getTipoCaso() {
-        return tipoCaso;
+        return tipoCaso.toString();
     }
-    public void setTipoCaso(String pTipo)
+    public void setTipoCaso(InconsistenciaEnum pTipo)
     {
         this.tipoCaso = pTipo;
     }

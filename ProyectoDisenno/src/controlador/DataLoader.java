@@ -63,7 +63,7 @@ public class DataLoader {
                 }
                 if (!existe) {
                     solicitudesLocales.add(solicitudGoogle);
-                }
+                } 
             } 
             
             DAOsolicitudes dao = new DAOsolicitudes();
@@ -77,9 +77,10 @@ public class DataLoader {
     }
 
     public ArrayList<DTOSolicitud> cargarSolicitudesGoogle() {
+                
         String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
         String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleDriveExcel();
-         GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");
+         GoogleForms forms = new GoogleForms("1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE", "Sheet1!A2:K", "APP");
         List<List<Object>> values = forms.getResponse().getValues();
         ArrayList<DTOSolicitud> solicitudes = new ArrayList<>();
         if (values == null || values.size() == 0) {
@@ -93,21 +94,21 @@ public class DataLoader {
                     DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                     Date fechaDate = (Date) df.parse(fecha);
                     FechaHora fechaHora = new FechaHora(fechaDate, tiempo);
-                    String idSolicitante = String.valueOf(row.get(2));
-                    String nombreSolicitante = String.valueOf(row.get(3));
-                    String carnetEstudiante = String.valueOf(row.get(4));
-                    String nombreEstudiante = String.valueOf(row.get(5));
-                    String correoEstudiante = String.valueOf(row.get(5));
-                    String numeroEstudiante = String.valueOf(row.get(6));
+                    String idSolicitante = String.valueOf(row.get(1));
+                    String nombreSolicitante = String.valueOf(row.get(2));
+                    String carnetEstudiante = String.valueOf(row.get(3));
+                    String nombreEstudiante = String.valueOf(row.get(2));
+                    String correoEstudiante = String.valueOf(row.get(4));
+                    String numeroEstudiante = String.valueOf(row.get(5));
                     Estudiante estudiante = new Estudiante(" ", nombreEstudiante, " ", correoEstudiante, numeroEstudiante, Integer.parseInt(carnetEstudiante));
-                    String periodoNombre = String.valueOf(row.get(7));
+                    String periodoNombre = String.valueOf(row.get(6));
                     Periodo periodo = new Periodo(periodoNombre);
-                    String cursoNombre = String.valueOf(row.get(8));
+                    String cursoNombre = String.valueOf(row.get(7));
                     Curso curso = new Curso(cursoNombre);
-                    int numeroGrupo = Integer.parseInt(String.valueOf(row.get(9)));
+                    int numeroGrupo = Integer.parseInt(String.valueOf(row.get(8)));
                     Grupo grupo = new Grupo(numeroGrupo);
-                    InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(10)));
-                    String detallesInconsistencia = String.valueOf(row.get(11));
+                    InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(9)));
+                    String detallesInconsistencia = String.valueOf(row.get(10));
                     DTOSolicitud solicitud = new DTOSolicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
                             detallesInconsistencia, EstadoEnum.PENDIENTE
                     );
@@ -226,8 +227,8 @@ public class DataLoader {
             ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\cursos.xls");
             ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
             ConfigurationPaths.getInstance().setPathSolicitudesLocal("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\Solicitudes.ld");
-            ConfigurationPaths.getInstance().setPathGoogleDriveExcel("1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE");
-            ConfigurationPaths.getInstance().setFormatoGoogleFriveExcel("Sheet1!A2:L");
+            ConfigurationPaths.getInstance().setPathGoogleDriveExcel("1e2dAAx72H7AkCg7xuKV0t4vkXIqRHEvCAUDCd9LGhRY");
+            ConfigurationPaths.getInstance().setFormatoGoogleFriveExcel("Sheet1!A2:K");
             FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
