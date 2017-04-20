@@ -34,6 +34,8 @@ public class DataLoader
             else
                 cont = false; 
         }
+        fileInputStream.close();
+        objectInputStream.close();
         
         String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
         String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleFriveExcel();        
