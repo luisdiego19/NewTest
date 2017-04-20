@@ -437,7 +437,7 @@ public class VisionSolicitud extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerarPDFActionPerformed
 
     private void btnGenerarHTMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarHTMLActionPerformed
-        // TODO add your handling code here:
+        ui.generarHTML();        // TODO add your handling code here:
     }//GEN-LAST:event_btnGenerarHTMLActionPerformed
 
     private void btnVerResolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerResolucionActionPerformed
