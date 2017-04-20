@@ -1,9 +1,10 @@
 package datos;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Solicitud {
+public class Solicitud implements Serializable {
     
     private Date Fecha; 
     private String Identificacion; 

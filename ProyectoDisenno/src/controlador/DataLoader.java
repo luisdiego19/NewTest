@@ -164,7 +164,10 @@ public class DataLoader
         ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
         ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
         FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);          
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream); 
+                            
+        
+        
         objectOutputStream.writeObject(ConfigurationPaths.getInstance());
         objectOutputStream.close();
         fileOutputStream.close();
