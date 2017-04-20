@@ -34,12 +34,25 @@ public class testGoogle {
         {
             System.out.println("Error " + ex.getLocalizedMessage());
         }*/
+        try{
         ArrayList<Solicitud> nuevas = loader.cargaInicialSolicitudes();
         for(Solicitud solicitud: nuevas)
         {
             System.out.println(solicitud.getCodigo());
         }        
-                
+        nuevas.get(0).setNombreSolicitante("Fulano");
+        DAOsolicitudes dao = new DAOsolicitudes(); 
+        dao.salvarSolicitudesLocal(nuevas);
+        
+        ArrayList<Solicitud> nuevas3 = loader.cargaInicialSolicitudes();
+        for(Solicitud solicitud: nuevas3)
+        {
+            System.out.println(solicitud.getNombreSolicitante());
+        }     
+        } catch(Exception ex)
+        {
+            System.out.println(ex.getMessage());
+        }
     }
     
     public static ArrayList<Solicitud> cargarSolicitudesGoogle() {

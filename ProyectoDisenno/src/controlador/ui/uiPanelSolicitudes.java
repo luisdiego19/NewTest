@@ -64,7 +64,7 @@ public class uiPanelSolicitudes
     public void accionBtnVerSolicitud()
     {
         VisionSolicitud visionSolicitud = new VisionSolicitud();
-        visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE);
+        visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE);        
         // TODO visionSolicitud.getUi().setSolicitud(solicitud);
         visionSolicitud.setVisible(true);        
     }

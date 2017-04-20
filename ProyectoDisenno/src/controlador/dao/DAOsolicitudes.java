@@ -24,7 +24,9 @@ public class DAOsolicitudes {
                     cont = false;
                 }
             }
-
+             pointerPosition = 0;
+            System.out.println(pointerPosition);
+            
             FileOutputStream fileOutputStream = new FileOutputStream(ConfigurationPaths.getInstance().getPathSolicitudesLocal());
             fileOutputStream.getChannel().position(pointerPosition);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
