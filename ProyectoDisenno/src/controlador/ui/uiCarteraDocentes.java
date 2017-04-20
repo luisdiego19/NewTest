@@ -15,7 +15,7 @@ public class uiCarteraDocentes
         this.carteraDocente = pCartera;        
     }
     
-    public void populateTable()
+    public void populateTablaDocentes()
     {
         DataLoader loader = new DataLoader();  
         ArrayList<Docente> docentes = loader.cargarCarteraDocente();        
