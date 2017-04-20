@@ -24,6 +24,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 public class DataLoader {
 
@@ -125,11 +126,17 @@ public class DataLoader {
 
     public void cargarPrimerosDatos() {
         try {
-            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            ConfigurationPaths.setInstance((ConfigurationPaths) objectInputStream.readObject());
-            fileInputStream.close();
-            objectInputStream.close();
+            //FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
+            //ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            //ConfigurationPaths.setInstance((ConfigurationPaths) objectInputStream.readObject());
+            Properties parametros = new Properties();
+            parametros.load(new FileInputStream("src\\archivos\\parametros.properties"));
+            ConfigurationPaths.getInstance().setDirectorAdminisionRegistro(parametros.getProperty("directorAdminisionRegistro"));
+            
+            
+            
+//            fileInputStream.close();
+//            objectInputStream.close();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
