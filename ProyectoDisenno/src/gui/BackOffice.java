@@ -84,7 +84,7 @@ public class BackOffice extends javax.swing.JFrame {
 
         txtSolNombre.setToolTipText("");
 
-        comboSolInconsistencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSolInconsistencia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ERROR_NOTA", "INCLUSION_ACTA", "EXCLUSION_ACTA" }));
 
         comboSolPeriodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -176,7 +176,7 @@ public class BackOffice extends javax.swing.JFrame {
                 .addGap(68, 68, 68))
         );
 
-        jLabel16.setText("Carnet");
+        jLabel16.setText("Carne");
 
         jLabel17.setText("Nombre");
 

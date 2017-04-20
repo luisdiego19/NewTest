@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PDFExporter;
+package controlador.dto;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Giova
  */
-public class DTOPDFExporter {
+public class DTOResolucion {
     private String fecha;
     private String directorCarrera;
     private String idSolicitud;
@@ -30,7 +30,7 @@ public class DTOPDFExporter {
     private int anno;
     private String directorAdmision;
     
-    public DTOPDFExporter(String pFecha,String pDirector,String pTipoCaso,String pProfesor,int pAnno,String pIdSol,int pNumeroRes, String pIdCurso,String pNombreCurso, int pGrupo, 
+    public DTOResolucion(String pFecha,String pDirector,String pTipoCaso,String pProfesor,int pAnno,String pIdSol,int pNumeroRes, String pIdCurso,String pNombreCurso, int pGrupo, 
             String pEstudiante, String pCarne, String pPeriodo,String pResultado, ArrayList<String> pConsiderados,String pResolucion,String pDirectorAdmision) {
         this.fecha = pFecha;
         this.directorCarrera = pDirector;
@@ -51,7 +51,7 @@ public class DTOPDFExporter {
         this.directorAdmision = pDirectorAdmision;
     }   
     
-    public  DTOPDFExporter()
+    public  DTOResolucion()
     {}
     /**
      * @return the directorCarrera
