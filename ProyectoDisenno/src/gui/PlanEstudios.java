@@ -5,19 +5,36 @@
  */
 package gui;
 
+import controlador.ui.uiPlanEstudios;
+import javax.swing.JTable;
+
 /**
  *
  * @author USER
  */
 public class PlanEstudios extends javax.swing.JFrame {
 
+    uiPlanEstudios ui;
+        
     /**
      * Creates new form PlanEstudios
      */
     public PlanEstudios() {
         initComponents();
+        ui = new uiPlanEstudios(this);
+        ui.populateTablaCursos();
+        ui.populateTablaOfertaAcademica();
     }
 
+    public JTable getTablaOfertaAcademica() {
+        return tablaOfertaAcademica;
+    }
+
+    public JTable getTablaCursos() {
+        return tablaCursos;
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,13 +45,13 @@ public class PlanEstudios extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaDocentes = new javax.swing.JTable();
+        tablaOfertaAcademica = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tablaDocentes1 = new javax.swing.JTable();
+        tablaCursos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tablaDocentes.setModel(new javax.swing.table.DefaultTableModel(
+        tablaOfertaAcademica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -42,12 +59,12 @@ public class PlanEstudios extends javax.swing.JFrame {
                 "Código", "Nombre", "Grupo", "ID Profesor", "Nombre Profesor", "Primera Fecha/Hora", "Segunda Fecha/Hora", "Aula"
             }
         ));
-        tablaDocentes.setCellSelectionEnabled(true);
-        tablaDocentes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setViewportView(tablaDocentes);
-        tablaDocentes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tablaOfertaAcademica.setCellSelectionEnabled(true);
+        tablaOfertaAcademica.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setViewportView(tablaOfertaAcademica);
+        tablaOfertaAcademica.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
-        tablaDocentes1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCursos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -55,10 +72,10 @@ public class PlanEstudios extends javax.swing.JFrame {
                 "Código", "Nombre", "Creditos"
             }
         ));
-        tablaDocentes1.setCellSelectionEnabled(true);
-        tablaDocentes1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane2.setViewportView(tablaDocentes1);
-        tablaDocentes1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        tablaCursos.setCellSelectionEnabled(true);
+        tablaCursos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane2.setViewportView(tablaCursos);
+        tablaCursos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,7 +142,7 @@ public class PlanEstudios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tablaDocentes;
-    private javax.swing.JTable tablaDocentes1;
+    private javax.swing.JTable tablaCursos;
+    private javax.swing.JTable tablaOfertaAcademica;
     // End of variables declaration//GEN-END:variables
 }

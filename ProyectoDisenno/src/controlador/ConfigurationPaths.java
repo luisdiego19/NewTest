@@ -1,9 +1,11 @@
 package controlador;
 
+import java.io.Serializable;
 
-public class ConfigurationPaths {
+
+public class ConfigurationPaths implements Serializable {
     
-   private ConfigurationPaths configurationPaths; 
+   private static ConfigurationPaths configurationPaths; 
     
    private String pathSolicitudesLocal;
    private String pathGoogleDriveExcel;
@@ -32,13 +34,18 @@ public class ConfigurationPaths {
         this.directorAdminisionRegistro = directorAdminisionRegistro;
     }
 
-    public ConfigurationPaths getInstance()
+    public static ConfigurationPaths getInstance()
     {
         if(configurationPaths == null)
         {
             configurationPaths = new ConfigurationPaths();
         } 
         return configurationPaths;         
+    }
+    
+    public static void setInstance(ConfigurationPaths pConfigurationPaths)
+    {
+        configurationPaths =  pConfigurationPaths;
     }
     
     public String getPathSolicitudesLocal() {
