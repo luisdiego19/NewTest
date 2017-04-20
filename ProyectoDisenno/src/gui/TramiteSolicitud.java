@@ -5,18 +5,135 @@
  */
 package gui;
 
+import controlador.ui.uiTramiteSolicitud;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+
 /**
  *
  * @author USER
  */
 public class TramiteSolicitud extends javax.swing.JFrame {
 
+    
+    private uiTramiteSolicitud ui; 
+    
     /**
      * Creates new form TramiteSolicitud
      */
     public TramiteSolicitud() {
         initComponents();
+        ui = new uiTramiteSolicitud(this);            
     }
+
+    public uiTramiteSolicitud getUi() {
+        return ui;
+    }
+
+    public void setUi(uiTramiteSolicitud ui) {
+        this.ui = ui;
+    }
+
+    public JTextArea getAreaTextAgregarConsiderando() {
+        return areaTextAgregarConsiderando;
+    }
+
+    public void setAreaTextAgregarConsiderando(JTextArea areaTextAgregarConsiderando) {
+        this.areaTextAgregarConsiderando = areaTextAgregarConsiderando;
+    }
+
+    public JTextArea getAreaTextModificarConsiderando() {
+        return areaTextModificarConsiderando;
+    }
+
+    public void setAreaTextModificarConsiderando(JTextArea areaTextModificarConsiderando) {
+        this.areaTextModificarConsiderando = areaTextModificarConsiderando;
+    }
+
+    public JTextArea getAreaTextTodosConsiderandos() {
+        return areaTextTodosConsiderandos;
+    }
+
+    public void setAreaTextTodosConsiderandos(JTextArea areaTextTodosConsiderandos) {
+        this.areaTextTodosConsiderandos = areaTextTodosConsiderandos;
+    }
+
+    public JButton getBtnAgregarConsiderando() {
+        return btnAgregarConsiderando;
+    }
+
+    public void setBtnAgregarConsiderando(JButton btnAgregarConsiderando) {
+        this.btnAgregarConsiderando = btnAgregarConsiderando;
+    }
+
+    public JButton getBtnEliminarConsiderando() {
+        return btnEliminarConsiderando;
+    }
+
+    public void setBtnEliminarConsiderando(JButton btnEliminarConsiderando) {
+        this.btnEliminarConsiderando = btnEliminarConsiderando;
+    }
+
+    public JButton getBtnModificarConsiderando() {
+        return btnModificarConsiderando;
+    }
+
+    public void setBtnModificarConsiderando(JButton btnModificarConsiderando) {
+        this.btnModificarConsiderando = btnModificarConsiderando;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public void setjScrollPane2(JScrollPane jScrollPane2) {
+        this.jScrollPane2 = jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JSpinner getSpnSeleccionarConsiderando() {
+        return spnSeleccionarConsiderando;
+    }
+
+    public void setSpnSeleccionarConsiderando(JSpinner spnSeleccionarConsiderando) {
+        this.spnSeleccionarConsiderando = spnSeleccionarConsiderando;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

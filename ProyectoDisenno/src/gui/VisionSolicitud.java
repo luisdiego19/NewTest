@@ -53,8 +53,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
         txtSolNombreSolicitante = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtSolID = new javax.swing.JTextField();
-        txtSolNumero = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
         txtSolGrupo = new javax.swing.JTextField();
         txtSolPeriodo = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -74,7 +72,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         areaTextDetalles = new javax.swing.JTextArea();
         btnVerEvidencia = new javax.swing.JButton();
-        btnVerConsiderandos = new javax.swing.JButton();
         btnTramitar = new javax.swing.JButton();
         btnAnular = new javax.swing.JButton();
         btnGenerarPDF = new javax.swing.JButton();
@@ -159,10 +156,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
 
         txtSolID.setEditable(false);
 
-        txtSolNumero.setEditable(false);
-
-        jLabel5.setText("Número");
-
         txtSolGrupo.setEditable(false);
 
         txtSolPeriodo.setEditable(false);
@@ -230,15 +223,12 @@ public class VisionSolicitud extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel6))
-                                            .addGap(70, 70, 70))
+                                            .addComponent(jLabel6)
+                                            .addGap(78, 78, 78))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                             .addComponent(jLabel7)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtSolNumero)
                                         .addComponent(txtSolFecha, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(txtSolID, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -253,10 +243,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtSolNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtSolFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -318,14 +304,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
 
         btnVerEvidencia.setText("Ver Evidencia");
 
-        btnVerConsiderandos.setText("Ver Considerandos");
-        btnVerConsiderandos.setActionCommand("");
-        btnVerConsiderandos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerConsiderandosActionPerformed(evt);
-            }
-        });
-
         btnTramitar.setText("Tramitar");
         btnTramitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,24 +349,7 @@ public class VisionSolicitud extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnVerEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnVerConsiderandos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVerResolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
+                        .addGap(206, 206, 206)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnGenerarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,8 +359,24 @@ public class VisionSolicitud extends javax.swing.JFrame {
                                 .addComponent(btnTramitar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(210, 210, 210)))
-                .addGap(54, 54, 54))
+                        .addGap(264, 264, 264))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnVerEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnVerResolucion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(54, 54, 54))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -415,16 +392,11 @@ public class VisionSolicitud extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnVerEvidencia)
-                            .addComponent(btnVerConsiderandos))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnTramitar)
-                            .addComponent(btnAnular)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(btnVerResolucion)))
+                            .addComponent(btnVerResolucion))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTramitar)
+                    .addComponent(btnAnular))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGenerarPDF)
@@ -434,10 +406,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVerConsiderandosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerConsiderandosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerConsiderandosActionPerformed
 
     private void btnAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnularActionPerformed
         // TODO add your handling code here:
@@ -481,10 +449,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
 
     public JButton getBtnTramitar() {
         return btnTramitar;
-    }
-
-    public JButton getBtnVerConsiderandos() {
-        return btnVerConsiderandos;
     }
 
     public JButton getBtnVerEvidencia() {
@@ -539,9 +503,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
         return jLabel23;
     }
 
-    public JLabel getjLabel5() {
-        return jLabel5;
-    }
 
     public JLabel getjLabel6() {
         return jLabel6;
@@ -619,10 +580,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
         return txtSolNombreSolicitante;
     }
 
-    public JTextField getTxtSolNumero() {
-        return txtSolNumero;
-    }
-
     public JTextField getTxtSolPeriodo() {
         return txtSolPeriodo;
     }
@@ -669,7 +626,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
     private javax.swing.JButton btnGenerarHTML;
     private javax.swing.JButton btnGenerarPDF;
     private javax.swing.JButton btnTramitar;
-    private javax.swing.JButton btnVerConsiderandos;
     private javax.swing.JButton btnVerEvidencia;
     private javax.swing.JButton btnVerResolucion;
     private javax.swing.JLabel jLabel10;
@@ -683,7 +639,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -703,7 +658,6 @@ public class VisionSolicitud extends javax.swing.JFrame {
     private javax.swing.JTextField txtSolID;
     private javax.swing.JTextField txtSolInconsistencia;
     private javax.swing.JTextField txtSolNombreSolicitante;
-    private javax.swing.JTextField txtSolNumero;
     private javax.swing.JTextField txtSolPeriodo;
     // End of variables declaration//GEN-END:variables
 }

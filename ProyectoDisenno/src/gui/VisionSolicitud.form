@@ -27,31 +27,7 @@
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnVerEvidencia" min="-2" pref="150" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnVerConsiderandos" min="-2" pref="150" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="btnVerResolucion" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btnGenerarPDF" min="-2" pref="150" max="-2" attributes="0"/>
@@ -64,10 +40,33 @@
                               <Component id="btnAnular" min="-2" pref="150" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnVerEvidencia" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnVerResolucion" min="-2" pref="150" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,22 +85,14 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnVerEvidencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnVerConsiderandos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnVerResolucion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnTramitar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnAnular" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                      <Component id="btnVerResolucion" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnTramitar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAnular" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -279,11 +270,8 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
@@ -291,7 +279,6 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtSolNumero" max="32767" attributes="0"/>
                                           <Component id="txtSolFecha" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtSolID" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                       </Group>
@@ -315,11 +302,6 @@
               <Group type="102" alignment="1" attributes="0">
                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtSolNumero" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSolFecha" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -378,16 +360,6 @@
         <Component class="javax.swing.JTextField" name="txtSolID">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtSolNumero">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSolGrupo">
@@ -513,15 +485,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Ver Evidencia"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnVerConsiderandos">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ver Considerandos"/>
-        <Property name="actionCommand" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerConsiderandosActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnTramitar">
       <Properties>

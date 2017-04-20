@@ -12,9 +12,42 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import jxl.Cell;
+import com.my.GoogleForms;
+import datos.Solicitud;
 
 public class DataLoader 
-{        
+{       
+    
+    public void cargaInicialSolicitudes()
+    {
+        try
+        {
+        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\Solicitudes.ld");
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);   
+        ArrayList<Solicitud> solicitudesLocales = new ArrayList<>();
+        boolean cont = true;
+        while(cont)
+        {
+            Solicitud solicitud = (Solicitud)objectInputStream.readObject();            
+            if(solicitud != null)            
+                solicitudesLocales.add(solicitud);             
+            else
+                cont = false; 
+        }
+        
+        String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
+        String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleFriveExcel();        
+        GoogleForms google = new GoogleForms(hojaID, hojaFormato, "APP");
+        
+        
+        
+        }catch(Exception ex)
+        {
+            
+        }
+        
+    }            
+    
     public void cargarPrimerosDatos() 
     {             
         try{
@@ -28,8 +61,7 @@ public class DataLoader
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-        
-        
+                
     public ArrayList<Curso> cargarCursos()
     {
         try{
@@ -123,15 +155,14 @@ public class DataLoader
         }
     }    
     
-    
-    /*
+        
     public static void main(String args[])
     {
         try{
         ConfigurationPaths.getInstance(); 
         ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");    
         ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
-          ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
+        ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
         FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);          
         objectOutputStream.writeObject(ConfigurationPaths.getInstance());
@@ -141,6 +172,10 @@ public class DataLoader
         {
             System.out.println(ex.getLocalizedMessage());
         }                
-    } */
+    } 
+    
+    
+    
+    
     
 }
