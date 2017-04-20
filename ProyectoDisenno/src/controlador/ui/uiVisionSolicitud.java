@@ -1,5 +1,6 @@
 package controlador.ui;
 
+import datos.EstadoEnum;
 import datos.Solicitud;
 import gui.TramiteSolicitud;
 import gui.VisionSolicitud;
@@ -54,6 +55,14 @@ public class uiVisionSolicitud
         tramiteSolicitud.getUi().setSolicitud(solicitud);
         tramiteSolicitud.getUi().llenarDatos();
         tramiteSolicitud.setVisible(true);                
+    }
+    
+    public void accionBtnAnular()
+    {
+        solicitud.setEstado(EstadoEnum.ANULADA);
+        visionSolicitud.getTxtSolEstado().setText("ANULADA");
+        visionSolicitud.getBtnTramitar().setVisible(false);
+        visionSolicitud.getBtnGenerarHTML().setVisible(false);
     }
     
     

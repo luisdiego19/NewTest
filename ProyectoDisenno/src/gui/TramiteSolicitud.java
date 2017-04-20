@@ -130,7 +130,7 @@ public class TramiteSolicitud extends javax.swing.JFrame {
     }
 
     public void setSpnSeleccionarConsiderando(JSpinner spnSeleccionarConsiderando) {
-        this.spnSeleccionarConsiderando = spnSeleccionarConsiderando;
+        this.spnSeleccionarConsiderando = spnSeleccionarConsiderando;        
     }
     
     
