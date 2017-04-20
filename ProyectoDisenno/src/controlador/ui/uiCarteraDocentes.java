@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class uiCarteraDocentes 
 {    
-    private CarteraDocente carteraDocente; 
+    private final CarteraDocente carteraDocente; 
         
     public uiCarteraDocentes(CarteraDocente pCartera)            
     {
@@ -18,8 +18,7 @@ public class uiCarteraDocentes
     public void populateTable()
     {
         DataLoader loader = new DataLoader();  
-        ArrayList<Docente> docentes = loader.cargarCarteraDocente();
-        System.out.println(docentes.size());
+        ArrayList<Docente> docentes = loader.cargarCarteraDocente();        
         DefaultTableModel model = (DefaultTableModel) carteraDocente.getTablaDocentes().getModel(); 
         Object rowData [] = new Object[4];
         for(int i = 0; i < docentes.size(); i++)

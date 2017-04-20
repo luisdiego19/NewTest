@@ -1,5 +1,7 @@
 package controlador;
 
+import datos.CreditosEnum;
+import datos.Curso;
 import datos.Docente;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,6 +28,38 @@ public class DataLoader
         }
     }
         
+        
+    public ArrayList<Curso> cargarCursos()
+    {
+        try{
+            String path = ConfigurationPaths.getInstance().getPathCursos();
+            System.out.println(path);
+            Excel excel = new Excel(path);
+            ArrayList<Curso> listaCursos = new ArrayList<>();
+            int rowCount = excel.getSheet().getRows();
+            int columnCount = excel.getSheet().getColumns();
+            for(int row = 1; row < rowCount; row++)
+            {
+                ArrayList<Cell> sheetCells = new ArrayList<>();
+                for(int column = 0; column < columnCount; column++)
+                {                    
+                    sheetCells.add(excel.getSheet().getCell(column, row));   
+                }
+                String codigoCurso =  sheetCells.get(0).getContents();
+                String nombre = sheetCells.get(1).getContents();
+                CreditosEnum creditos = CreditosEnum.valueOf(sheetCells.get(2).getContents());
+                Curso curso = new Curso(codigoCurso, nombre, creditos);
+                listaCursos.add(curso);
+            }
+            return listaCursos;
+        }catch(Exception ex)
+        {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            return null; 
+        }
+    }
+    
+    
     public ArrayList<Docente> cargarCarteraDocente()
     {
         try{
@@ -39,8 +73,7 @@ public class DataLoader
             ArrayList<Cell> sheetCells = new ArrayList<>();
             for(int column = 0; column < columnCount; column++)
             {
-                sheetCells.add(excel.getSheet().getCell(column, row));                
-                System.out.println(excel.getSheet().getCell(column, row).getContents());
+                sheetCells.add(excel.getSheet().getCell(column, row));                       
             }
             String identificacion = sheetCells.get(0).getContents();
             String nombre = sheetCells.get(1).getContents();
@@ -62,7 +95,8 @@ public class DataLoader
     {
         try{
         ConfigurationPaths.getInstance(); 
-        ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");        
+        ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\USER\\Desktop\\ExcelDiseno\\profesores.xls");    
+        ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\USER\\Desktop\\ExcelDiseno\\cursos.xls");
         FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\USER\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);          
         objectOutputStream.writeObject(ConfigurationPaths.getInstance());
@@ -72,6 +106,6 @@ public class DataLoader
         {
             System.out.println(ex.getLocalizedMessage());
         }                
-    }
-    */
+    } */
+    
 }

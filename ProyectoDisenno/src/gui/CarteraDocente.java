@@ -15,7 +15,7 @@ import javax.swing.JTable;
  */
 public class CarteraDocente extends javax.swing.JFrame {
 
-    private uiCarteraDocentes ui;
+    private final uiCarteraDocentes ui;
     
     /**
      * Creates new form CarteraDocente
