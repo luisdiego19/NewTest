@@ -43,7 +43,7 @@ public class GeneradorHTML implements GeneradorStrategy{
         while (consideradoActual < cantConsiderados)
         {
             considerados = considerados.concat("<h2>Considerado" + String.valueOf(consideradoActual+1) + "</h2>");
-            considerados = considerados.concat("<h3>" + resolucion.getConsiderados().get(consideradoActual) + "</h3>");
+            considerados = considerados.concat("<h3>" + resolucion.getConsiderados().get(consideradoActual).getAnotacion() + "</h3>");
             consideradoActual = consideradoActual + 1;
         }
         String resuelvo = "<h2>RESUELVO:</h2><h3>" + resolucion.getResolucion() + "</h3>";

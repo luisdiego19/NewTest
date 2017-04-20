@@ -103,7 +103,7 @@ public class GeneradorPDF implements GeneradorStrategy{
             while (consideradoActual < cantConsiderados)
             {
                 considerado.add("Considerado "+String.valueOf(consideradoActual+1)+"\n");
-                considerado.add(resolucion.getConsiderados().get(consideradoActual)+"\n");
+                considerado.add(resolucion.getConsiderados().get(consideradoActual).getAnotacion()+"\n");
                 consideradoActual = consideradoActual + 1;
             }
             

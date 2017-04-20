@@ -5,6 +5,7 @@
  */
 package controlador.dto;
 
+import datos.Considerando;
 import java.util.ArrayList;
 
 /**
@@ -20,10 +21,10 @@ public class DTOResolucion {
     private String nombreCurso;
     private int grupoCurso;
     private String nombreEstudiante;
-    private String carneEstudiante;
+    private int carneEstudiante;
     private String periodo;
     private String resultado;
-    private ArrayList<String> considerados;
+    private ArrayList<Considerando> considerados;
     private String resolucion;
     private String tipoCaso;
     private String profesor;
@@ -31,7 +32,7 @@ public class DTOResolucion {
     private String directorAdmision;
     
     public DTOResolucion(String pFecha,String pDirector,String pTipoCaso,String pProfesor,int pAnno,String pIdSol,int pNumeroRes, String pIdCurso,String pNombreCurso, int pGrupo, 
-            String pEstudiante, String pCarne, String pPeriodo,String pResultado, ArrayList<String> pConsiderados,String pResolucion,String pDirectorAdmision) {
+            String pEstudiante, int pCarne, String pPeriodo,String pResultado, ArrayList<Considerando> pConsiderados,String pResolucion,String pDirectorAdmision) {
         this.fecha = pFecha;
         this.directorCarrera = pDirector;
         this.idSolicitud = pIdSol;
@@ -155,14 +156,14 @@ public class DTOResolucion {
     /**
      * @return the carneEstudiante
      */
-    public String getCarneEstudiante() {
+    public int getCarneEstudiante() {
         return carneEstudiante;
     }
 
     /**
      * @param carneEstudiante the carneEstudiante to set
      */
-    public void setCarneEstudiante(String carneEstudiante) {
+    public void setCarneEstudiante(int carneEstudiante) {
         this.carneEstudiante = carneEstudiante;
     }
 
@@ -183,14 +184,14 @@ public class DTOResolucion {
     /**
      * @return the considerados
      */
-    public ArrayList<String> getConsiderados() {
+    public ArrayList<Considerando> getConsiderados() {
         return considerados;
     }
 
     /**
      * @param considerados the considerados to set
      */
-    public void setConsiderados(ArrayList<String> considerados) {
+    public void setConsiderados(ArrayList<Considerando> considerados) {
         this.considerados = considerados;
     }
 

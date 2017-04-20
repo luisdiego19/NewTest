@@ -85,7 +85,13 @@ public class uiVisionSolicitud
         date = solicitud.getFecha().getDate();
         String annoTemp = date.toString().substring(date.toString().length() - 4, date.toString().length());
         int anno = Integer.valueOf(annoTemp);
+        
         DTOResolucion resolucion = new DTOResolucion();        
-        control.generarDocumento(resolucion, 0);
+        resolucion.setAnno(anno);
+        resolucion.setCarneEstudiante(solicitud.getEstudiante().getCarnet());
+        resolucion.setNombreEstudiante(solicitud.getEstudiante().getNombre()+ " " + solicitud.getEstudiante().getApellidos());
+        resolucion.setConsiderados(solicitud.getConsiderandos());
+        
+        control.generarDocumento(resolucion, 1);
     }
 }
