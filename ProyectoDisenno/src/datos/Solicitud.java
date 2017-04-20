@@ -2,11 +2,10 @@ package datos;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Solicitud implements Serializable {
     
-    private Date Fecha; 
+    private FechaHora Fecha; 
     private String Identificacion; 
     private String nombreSolicitante; 
     private Periodo periodo;
@@ -19,7 +18,7 @@ public class Solicitud implements Serializable {
     private EstadoEnum Estado; 
     private ArrayList<Considerando> considerandos; 
 
-    public Solicitud(Date Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Curso curso, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
+    public Solicitud(FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Curso curso, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.nombreSolicitante = nombreSolicitante;
@@ -34,7 +33,7 @@ public class Solicitud implements Serializable {
         this.considerandos = considerandos;
     }
             
-    public Solicitud(Date Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
+    public Solicitud(FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.nombreSolicitante = nombreSolicitante;
@@ -48,7 +47,7 @@ public class Solicitud implements Serializable {
         this.considerandos = considerandos;
     }
                
-    public Solicitud(Date Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {        
+    public Solicitud(FechaHora Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {        
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.periodo = periodo;
@@ -60,7 +59,7 @@ public class Solicitud implements Serializable {
         this.Estado = Estado;
     }
 
-    public Solicitud(Date Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
+    public Solicitud(FechaHora Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.periodo = periodo;
@@ -97,11 +96,11 @@ public class Solicitud implements Serializable {
         this.considerandos = considerandos;
     }        
     
-    public Date getFecha() {
+    public FechaHora getFecha() {
         return Fecha;
     }
 
-    public void setFecha(Date Fecha) {
+    public void setFecha(FechaHora Fecha) {
         this.Fecha = Fecha;
     }
 
