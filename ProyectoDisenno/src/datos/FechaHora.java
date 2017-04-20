@@ -1,14 +1,13 @@
 package datos;
 
-import java.sql.Time;
-import java.sql.Date;
+import java.util.Date;
 
 public class FechaHora 
 {
     private Date date;     
-    private Time time; 
+    private String time; 
 
-    public FechaHora(Date date, Time time) {
+    public FechaHora(Date date, String time) {
         this.date = date;
         this.time = time;
     }
@@ -21,11 +20,11 @@ public class FechaHora
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {        
+    public void setTime(String time) {        
         this.time = time;
     }
     
@@ -33,7 +32,7 @@ public class FechaHora
     {
         if (this.date.compareTo(fechaHora.getDate()) == 0)
         {
-            if(this.time.compareTo(fechaHora.getTime()) == 0)
+            if(this.time.equals(fechaHora.getTime()))
                 return 0;
         }
         return 1; 

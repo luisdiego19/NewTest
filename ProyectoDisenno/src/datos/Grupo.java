@@ -5,6 +5,11 @@ public class Grupo {
     private int Codigo; 
     private int NumeroGrupo; 
 
+    public Grupo(int NumeroGrupo) {
+        this.NumeroGrupo = NumeroGrupo;
+    }
+   
+    
     public Grupo(int Codigo, int NumeroGrupo) {
         this.Codigo = Codigo;
         this.NumeroGrupo = NumeroGrupo;

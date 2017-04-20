@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Solicitud implements Serializable {
     
+    private String Codigo;
     private FechaHora Fecha; 
     private String Identificacion; 
     private String nombreSolicitante; 
@@ -18,7 +19,22 @@ public class Solicitud implements Serializable {
     private EstadoEnum Estado; 
     private ArrayList<Considerando> considerandos; 
 
-    public Solicitud(FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Curso curso, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
+    public Solicitud(FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Curso curso, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, EstadoEnum Estado) {
+        this.Fecha = Fecha;
+        this.Identificacion = Identificacion;
+        this.nombreSolicitante = nombreSolicitante;
+        this.periodo = periodo;
+        this.grupo = grupo;
+        this.curso = curso;
+        this.estudiante = estudiante;
+        this.inconsistencia = inconsistencia;
+        this.Detalles = Detalles;
+        this.Estado = Estado;
+        this.considerandos = new ArrayList<>();
+    }
+            
+    public Solicitud(String Codigo, FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Curso curso, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
+        this.Codigo = Codigo;
         this.Fecha = Fecha;
         this.Identificacion = Identificacion;
         this.nombreSolicitante = nombreSolicitante;
@@ -32,46 +48,24 @@ public class Solicitud implements Serializable {
         this.Estado = Estado;
         this.considerandos = considerandos;
     }
-            
-    public Solicitud(FechaHora Fecha, String Identificacion, String nombreSolicitante, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
-        this.Fecha = Fecha;
-        this.Identificacion = Identificacion;
-        this.nombreSolicitante = nombreSolicitante;
-        this.periodo = periodo;
-        this.grupo = grupo;
-        this.estudiante = estudiante;
-        this.inconsistencia = inconsistencia;
-        this.Detalles = Detalles;
-        this.Adjuntos = Adjuntos;
-        this.Estado = Estado;
-        this.considerandos = considerandos;
-    }
-               
-    public Solicitud(FechaHora Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado) {        
-        this.Fecha = Fecha;
-        this.Identificacion = Identificacion;
-        this.periodo = periodo;
-        this.grupo = grupo;
-        this.estudiante = estudiante;
-        this.inconsistencia = inconsistencia;
-        this.Detalles = Detalles;
-        this.Adjuntos = Adjuntos;
-        this.Estado = Estado;
+
+    public String getCodigo() {
+        return Codigo;
     }
 
-    public Solicitud(FechaHora Fecha, String Identificacion, Periodo periodo, Grupo grupo, Estudiante estudiante, InconsistenciaEnum inconsistencia, String Detalles, Object Adjuntos, EstadoEnum Estado, ArrayList<Considerando> considerandos) {
-        this.Fecha = Fecha;
-        this.Identificacion = Identificacion;
-        this.periodo = periodo;
-        this.grupo = grupo;
-        this.estudiante = estudiante;
-        this.inconsistencia = inconsistencia;
-        this.Detalles = Detalles;
-        this.Adjuntos = Adjuntos;
-        this.Estado = Estado;
-        this.considerandos = considerandos;
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
     }
 
+    public String generarCodigo()
+    {
+        String uno = Fecha.getTime().split(":")[0];
+        String dos = Fecha.getTime().split(":")[1];
+        String tres = Fecha.getTime().split(":")[2];
+        String milis = String.valueOf(Fecha.getDate().getTime());
+        return milis+uno+dos+tres;                
+    }
+                   
     public Curso getCurso() {
         return curso;
     }

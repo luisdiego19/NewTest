@@ -6,6 +6,10 @@ public class Curso {
     public String nombreCurso; 
     public CreditosEnum creditos;
 
+    public Curso(String nombreCurso) {
+        this.nombreCurso = nombreCurso;
+    }
+
     public Curso(String codigoCurso, String nombreCurso, CreditosEnum creditos) {
         this.codigoCurso = codigoCurso;
         this.nombreCurso = nombreCurso;
