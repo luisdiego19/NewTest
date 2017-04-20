@@ -16,7 +16,8 @@ public class uiVisionSolicitud
                     
     public void llenarDatos()
     {
-        String fecha = solicitud.getFecha().toString();
+        String codigo = solicitud.getCodigo();
+        String fecha = solicitud.getFecha().getDate().toString();
         String idSolicitante = solicitud.getIdentificacion();
         String nombreSolicitante = solicitud.getNombreSolicitante();
         String periodo = solicitud.getPeriodo().getNombre();
@@ -25,6 +26,7 @@ public class uiVisionSolicitud
         String inconsistencia = String.valueOf(solicitud.getInconsistencia());
         String estado = String.valueOf(solicitud.getEstado());
         
+        visionSolicitud.getTxtSolNumero().setText(codigo);
         visionSolicitud.getTxtSolFecha().setText(fecha);
         visionSolicitud.getTxtSolID().setText(idSolicitante);
         visionSolicitud.getTxtSolNombreSolicitante().setText(nombreSolicitante);

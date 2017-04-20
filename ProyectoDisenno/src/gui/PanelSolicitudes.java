@@ -4,6 +4,7 @@ import controlador.ui.uiPanelSolicitudes;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 
 public class PanelSolicitudes extends javax.swing.JFrame {
@@ -16,9 +17,32 @@ public class PanelSolicitudes extends javax.swing.JFrame {
      */
     public PanelSolicitudes() {
         initComponents();
-        ui = new uiPanelSolicitudes(this);                
+        ui = new uiPanelSolicitudes(this);   
+        ui.populateTablaSolicitudes();
     }
 
+    public uiPanelSolicitudes getUi() {
+        return ui;
+    }
+
+    public JMenuItem getMenuItemCarteraDocente() {
+        return menuItemCarteraDocente;
+    }
+
+    public JMenuItem getMenuItemEstadisticas() {
+        return menuItemEstadisticas;
+    }
+
+    public JMenuItem getMenuItemPlanEstudios() {
+        return menuItemPlanEstudios;
+    }
+
+    public JTextField getTxtNumeroSolicitud() {
+        return txtNumeroSolicitud;
+    }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,6 +55,7 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaSolicitudes = new javax.swing.JTable();
         btnVerSolicitud = new javax.swing.JButton();
+        txtNumeroSolicitud = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuItemBackOffice = new javax.swing.JMenuItem();
@@ -47,7 +72,7 @@ public class PanelSolicitudes extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
+                "Numero", "Fecha", "ID", "Nombre", "Periodo", "Curso", "Grupo", "Carnet", "Nombre ", "Estado"
             }
         ));
         tablaSolicitudes.setCellSelectionEnabled(true);
@@ -118,22 +143,28 @@ public class PanelSolicitudes extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(315, 315, 315)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnVerSolicitud, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNumeroSolicitud))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(315, 315, 315)
-                .addComponent(btnVerSolicitud)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(txtNumeroSolicitud, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnVerSolicitud)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -226,5 +257,6 @@ public class PanelSolicitudes extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuItemEstadisticas;
     private javax.swing.JMenuItem menuItemPlanEstudios;
     private javax.swing.JTable tablaSolicitudes;
+    private javax.swing.JTextField txtNumeroSolicitud;
     // End of variables declaration//GEN-END:variables
 }

@@ -161,4 +161,12 @@ public class Solicitud implements Serializable {
     public void setEstado(EstadoEnum Estado) {
         this.Estado = Estado;
     }                   
+
+    @Override
+    public String toString() {
+        return "Solicitud{" + "Codigo=" + Codigo + ", Fecha=" + Fecha + ", Identificacion=" + Identificacion + ", nombreSolicitante=" + nombreSolicitante + ", periodo=" + periodo + ", grupo=" + grupo + ", curso=" + curso + ", estudiante=" + estudiante + ", inconsistencia=" + inconsistencia + ", Detalles=" + Detalles + ", Adjuntos=" + Adjuntos + ", Estado=" + Estado + ", considerandos=" + considerandos + '}';
+    }
+    
+    
+    
 }
