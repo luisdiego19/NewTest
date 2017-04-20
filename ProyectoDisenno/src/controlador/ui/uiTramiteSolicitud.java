@@ -2,9 +2,12 @@ package controlador.ui;
 
 import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
+import controlador.dto.DTOResolucion;
 import datos.Considerando;
 import datos.DTOSolicitud;
 import gui.TramiteSolicitud;
+import java.util.Calendar;
+import java.util.Date;
 
 public class uiTramiteSolicitud {
     
@@ -50,10 +53,7 @@ public class uiTramiteSolicitud {
         dao.actualizarSolicitud(solicitud);  
         llenarDatos();
     }
-    public void generarPDF()
-    {
-        controlador.generarPDF(solicitud);
-    }
+    
     public uiTramiteSolicitud(TramiteSolicitud tramiteSolicitud) {
         this.tramiteSolicitud = tramiteSolicitud;
     }

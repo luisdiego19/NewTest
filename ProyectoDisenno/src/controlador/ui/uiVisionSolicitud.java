@@ -2,10 +2,12 @@ package controlador.ui;
 
 import controlador.Controlador;
 import controlador.dao.DAOsolicitudes;
+import controlador.dto.DTOResolucion;
 import datos.EstadoEnum;
 import datos.DTOSolicitud;
 import gui.TramiteSolicitud;
 import gui.VisionSolicitud;
+import java.util.Date;
 
 public class uiVisionSolicitud 
 {
@@ -76,4 +78,14 @@ public class uiVisionSolicitud
     public void setSolicitud(DTOSolicitud solicitud) {
         this.solicitud = solicitud;
     }   
+    
+    public void generarPDF()
+    {        
+        Date date = new Date();
+        date = solicitud.getFecha().getDate();
+        String annoTemp = date.toString().substring(date.toString().length() - 4, date.toString().length());
+        int anno = Integer.valueOf(annoTemp);
+        DTOResolucion resolucion = new DTOResolucion();        
+        control.generarDocumento(resolucion, 0);
+    }
 }

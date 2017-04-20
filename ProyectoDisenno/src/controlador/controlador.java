@@ -6,6 +6,7 @@
 package controlador;
 
 import controlador.dao.DAOsolicitudes;
+import controlador.dto.DTOResolucion;
 import controlador.ui.uiTramiteSolicitud;
 import datos.Considerando;
 import datos.DTOSolicitud;
@@ -21,15 +22,21 @@ public class Controlador {
     {
       
     }
-    public void generarPDF(DTOSolicitud solicitud)
+    public void generarDocumento(DTOResolucion resolucion, int type)
     {
         
+        if(type == 1)
+        {
+            GeneradorPDF generador = new GeneradorPDF();
+            generador.generarDocumento(resolucion);
+        }
+        else
+        {
+            GeneradorHTML generador = new GeneradorHTML();
+            generador.generarDocumento(resolucion);
+        }
     }
-    
-    public void generarHTML()
-    {
-        
-    }
+
     
     public void accionModificarConsiderando(DTOSolicitud solicitud, int numeroConsiderando, String anotacion)
     {        

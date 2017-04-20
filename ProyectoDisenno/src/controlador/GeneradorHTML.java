@@ -13,13 +13,19 @@ import controlador.dto.DTOResolucion;
  *
  * @author Giova
  */
-public class GenerarHTML {
-    public GenerarHTML()
+public class GeneradorHTML implements GeneradorStrategy{
+    public GeneradorHTML()
     {
         
     }
     
-    public void createHTML(DTOResolucion resolucion) throws IOException
+    /**
+     *
+     * @param resolucion
+     * @throws IOException
+     */
+    @Override
+    public void generarDocumento(DTOResolucion resolucion)
     {
         String html = "<html> <meta charset=\"utf-8\"><div><h1>";
         String title = "Resolución de la Dirección de la Escuela de Ingeniería en Computación\n" +

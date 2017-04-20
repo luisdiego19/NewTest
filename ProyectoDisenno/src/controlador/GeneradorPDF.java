@@ -23,12 +23,13 @@ import java.util.logging.Logger;
  *
  * @author Giova
  */
-public class GenerarPDF {
-    public GenerarPDF()
+public class GeneradorPDF implements GeneradorStrategy{
+    public GeneradorPDF()
     {
     }
     
-    public void crearPDFResolucion(DTOResolucion resolucion)
+    @Override
+    public void generarDocumento(DTOResolucion resolucion)
     {
         try {
             Document doc = new Document();

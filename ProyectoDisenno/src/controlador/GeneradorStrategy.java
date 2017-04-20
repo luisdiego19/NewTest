@@ -6,10 +6,14 @@
  */
 package controlador;
 
+import controlador.dto.DTOResolucion;
+
 /**
  *
  * @author Giova
  */
-public class generador {
+public interface GeneradorStrategy {
+    DTOResolucion resolucion = new DTOResolucion();
     
+    public void generarDocumento(DTOResolucion resolucion);
 }
