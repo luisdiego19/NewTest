@@ -3,21 +3,21 @@ package controlador;
 import datos.DTOSolicitud;
 import java.util.ArrayList;
 
-public class Datos 
+public class DatosSolicitudes 
 {
     
     private ArrayList<DTOSolicitud> solicitudes;
-    private static Datos instance; 
+    private static DatosSolicitudes instance; 
     
-    private Datos()
+    private DatosSolicitudes()
     {
         
     }
     
-    public static Datos getInstance()
+    public static DatosSolicitudes getInstance()
     {
         if(instance == null)
-            instance = new Datos();
+            instance = new DatosSolicitudes();
         return instance; 
     }
     

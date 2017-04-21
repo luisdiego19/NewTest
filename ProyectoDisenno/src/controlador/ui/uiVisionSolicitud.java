@@ -1,7 +1,7 @@
 package controlador.ui;
 
 import controlador.ConfigurationPaths;
-import controlador.Controlador;
+import controlador.controlador;
 import controlador.dao.DAOsolicitudes;
 import controlador.dto.DTOResolucion;
 import datos.EstadoEnum;
@@ -14,7 +14,7 @@ public class uiVisionSolicitud
 {
     private final VisionSolicitud visionSolicitud; 
     private DTOSolicitud solicitud;
-    private Controlador control = new Controlador();    
+    private controlador control = new controlador();    
 
     public uiVisionSolicitud(VisionSolicitud visioSolicitud) {
         this.visionSolicitud = visioSolicitud; 

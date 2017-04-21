@@ -7,18 +7,16 @@ package controlador;
 
 import controlador.dao.DAOsolicitudes;
 import controlador.dto.DTOResolucion;
-import controlador.ui.uiTramiteSolicitud;
-import datos.Considerando;
 import datos.DTOSolicitud;
 import gui.TramiteSolicitud;
 /**
  *
  * @author Giova
  */
-public class Controlador {
+public class controlador {
     private TramiteSolicitud tramiteSolicitud;
     private DTOSolicitud solicitud;
-    public Controlador()
+    public controlador()
     {
       
     }

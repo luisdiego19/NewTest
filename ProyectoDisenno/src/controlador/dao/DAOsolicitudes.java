@@ -2,18 +2,16 @@ package controlador.dao;
 
 import controlador.ConfigurationPaths;
 import datos.DTOSolicitud;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import controlador.Datos;
+import controlador.DatosSolicitudes;
 
 public class DAOsolicitudes {
 
     public void actualizarSolicitud(DTOSolicitud solicitudActualizar) {
-        ArrayList<DTOSolicitud> solicitudes = Datos.getInstance().getSolicitudes();
+        ArrayList<DTOSolicitud> solicitudes = DatosSolicitudes.getInstance().getSolicitudes();
         ArrayList<DTOSolicitud> nueva = new ArrayList<>();
         for(DTOSolicitud solicitud: solicitudes)
         {
@@ -27,7 +25,7 @@ public class DAOsolicitudes {
         {
          System.out.println("Error " + ex.getMessage());   
         }
-        Datos.getInstance().setSolicitudes(nueva);        
+        DatosSolicitudes.getInstance().setSolicitudes(nueva);        
     }
 
     public void salvarSolicitudesLocal(ArrayList<DTOSolicitud> solicitudes) throws IOException {

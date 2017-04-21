@@ -8,7 +8,7 @@ import gui.Configuraciones;
 import gui.Estadisticas;
 import gui.PlanEstudios;
 import gui.VisionSolicitud;
-import controlador.Datos;
+import controlador.DatosSolicitudes;
 import datos.DTOSolicitud;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,25 +21,25 @@ public class uiPanelSolicitudes
         this.panelSolicitudes = pPanel;
         DataLoader loader = new DataLoader();
         loader.cargarPrimerosDatos();
-        Datos.getInstance().setSolicitudes(loader.cargaInicialSolicitudes());
+        DatosSolicitudes.getInstance().setSolicitudes(loader.cargaInicialSolicitudes());
     }
                     
     public void populateTablaSolicitudes()
     {
         DefaultTableModel model = (DefaultTableModel)panelSolicitudes.getTablaSolicitudes().getModel();
         Object rowData [] = new Object[10];
-        for(int i = 0; i < Datos.getInstance().getSolicitudes().size(); i++)
+        for(int i = 0; i < DatosSolicitudes.getInstance().getSolicitudes().size(); i++)
         {
-            rowData[0] = Datos.getInstance().getSolicitudes().get(i).getCodigo();
-            rowData[1] = Datos.getInstance().getSolicitudes().get(i).getFecha().getDate().toString();
-            rowData[2] = Datos.getInstance().getSolicitudes().get(i).getIdentificacion();
-            rowData[3] = Datos.getInstance().getSolicitudes().get(i).getNombreSolicitante();
-            rowData[4] = Datos.getInstance().getSolicitudes().get(i).getPeriodo().getNombre();
-            rowData[5] = Datos.getInstance().getSolicitudes().get(i).getCurso().getNombreCurso();
-            rowData[6] = Datos.getInstance().getSolicitudes().get(i).getGrupo().getNumeroGrupo();
-            rowData[7] = String.valueOf(Datos.getInstance().getSolicitudes().get(i).getEstudiante().getCarnet());
-            rowData[8] = Datos.getInstance().getSolicitudes().get(i).getEstudiante().getNombre();
-            rowData[9] = String.valueOf(Datos.getInstance().getSolicitudes().get(i).getEstado());            
+            rowData[0] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getCodigo();
+            rowData[1] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getFecha().getDate().toString();
+            rowData[2] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getIdentificacion();
+            rowData[3] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getNombreSolicitante();
+            rowData[4] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getPeriodo().getNombre();
+            rowData[5] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getCurso().getNombreCurso();
+            rowData[6] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getGrupo().getNumeroGrupo();
+            rowData[7] = String.valueOf(DatosSolicitudes.getInstance().getSolicitudes().get(i).getEstudiante().getCarnet());
+            rowData[8] = DatosSolicitudes.getInstance().getSolicitudes().get(i).getEstudiante().getNombre();
+            rowData[9] = String.valueOf(DatosSolicitudes.getInstance().getSolicitudes().get(i).getEstado());            
             model.addRow(rowData);
         }
     }
@@ -84,7 +84,7 @@ public class uiPanelSolicitudes
     {
         VisionSolicitud visionSolicitud = new VisionSolicitud();
         visionSolicitud.setDefaultCloseOperation(VisionSolicitud.DISPOSE_ON_CLOSE); 
-        DTOSolicitud solicitud = Datos.getInstance().getSolicitudCodigo(panelSolicitudes.getTxtNumeroSolicitud().getText());
+        DTOSolicitud solicitud = DatosSolicitudes.getInstance().getSolicitudCodigo(panelSolicitudes.getTxtNumeroSolicitud().getText());
         visionSolicitud.getUi().setSolicitud(solicitud);
         visionSolicitud.getUi().llenarDatos();
         visionSolicitud.setVisible(true);        
