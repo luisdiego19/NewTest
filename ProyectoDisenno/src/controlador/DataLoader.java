@@ -51,11 +51,9 @@ public class DataLoader {
                                     
             fileInputStream.close();
             objectInputStream.close();
-
             
-            ArrayList<DTOSolicitud> solicitudesNuevas = cargarSolicitudesGoogle();
-
-            for (DTOSolicitud solicitudGoogle : solicitudesNuevas) {
+            ArrayList<DTOSolicitud> solicitudesNuevas = cargarSolicitudesGoogle();            
+            for (DTOSolicitud solicitudGoogle : solicitudesNuevas) {                
                 boolean existe = false;
                 for (DTOSolicitud solicitudLocal : solicitudesLocales) {
                     if (solicitudLocal.getCodigo().equals(solicitudGoogle.getCodigo())) {
@@ -66,6 +64,8 @@ public class DataLoader {
                     solicitudesLocales.add(solicitudGoogle);
                 } 
             } 
+            
+            
             
             DAOsolicitudes dao = new DAOsolicitudes();
             dao.salvarSolicitudesLocal(solicitudesLocales);
@@ -81,9 +81,10 @@ public class DataLoader {
                 
         String hojaID = ConfigurationPaths.getInstance().getPathGoogleDriveExcel();
         String hojaFormato = ConfigurationPaths.getInstance().getFormatoGoogleDriveExcel();
-         GoogleForms forms = new GoogleForms("1aUZUKRCIfhH-pO8iTeyN30kZmByrVyOthv9-N5arUjE", "Sheet1!A2:K", "APP");
+         GoogleForms forms = new GoogleForms(hojaID, hojaFormato, "APP");         
         List<List<Object>> values = forms.getResponse().getValues();
         ArrayList<DTOSolicitud> solicitudes = new ArrayList<>();
+        
         if (values == null || values.size() == 0) {
             System.out.println("No data found.");
         } else {
@@ -101,6 +102,7 @@ public class DataLoader {
                     String nombreEstudiante = String.valueOf(row.get(2));
                     String correoEstudiante = String.valueOf(row.get(4));
                     String numeroEstudiante = String.valueOf(row.get(5));
+                    
                     Estudiante estudiante = new Estudiante(" ", nombreEstudiante, " ", correoEstudiante, numeroEstudiante, Integer.parseInt(carnetEstudiante));
                     String periodoNombre = String.valueOf(row.get(6));
                     Periodo periodo = new Periodo(periodoNombre);
@@ -108,6 +110,7 @@ public class DataLoader {
                     Curso curso = new Curso(cursoNombre);
                     int numeroGrupo = Integer.parseInt(String.valueOf(row.get(8)));
                     Grupo grupo = new Grupo(numeroGrupo);
+                    
                     InconsistenciaEnum inconsistencia = InconsistenciaEnum.valueOf(String.valueOf(row.get(9)));
                     String detallesInconsistencia = String.valueOf(row.get(10));
                     DTOSolicitud solicitud = new DTOSolicitud(fechaHora, idSolicitante, nombreSolicitante, periodo, grupo, curso, estudiante, inconsistencia,
@@ -126,17 +129,17 @@ public class DataLoader {
 
     public void cargarPrimerosDatos() {
         try {
-            //FileInputStream fileInputStream = new FileInputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
-            //ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            //ConfigurationPaths.setInstance((ConfigurationPaths) objectInputStream.readObject());
             Properties parametros = new Properties();
-            parametros.load(new FileInputStream("src\\archivos\\parametros.properties"));
+            parametros.load(new FileInputStream("src\\archivos\\parametros.properties"));                        
+            ConfigurationPaths.getInstance().setPathGoogleDriveExcel(parametros.getProperty("sheetid"));
+            ConfigurationPaths.getInstance().setFormatoGoogleDriveExcel(parametros.getProperty("range"));            
+            ConfigurationPaths.getInstance().setPathSolicitudesLocal(parametros.getProperty("pathSolicitudesLocal"));           
+            ConfigurationPaths.getInstance().setPathCarteraDocentes(parametros.getProperty("pathCarteraDocentes"));                        
+            ConfigurationPaths.getInstance().setPathCursos(parametros.getProperty("pathCursos"));
+            ConfigurationPaths.getInstance().setPathOfertaAcademica(parametros.getProperty("pathOfertaAcademica"));                       
+            ConfigurationPaths.getInstance().setDirectorEscuelaComputacion(parametros.getProperty("directorEscuelaComputacion"));
             ConfigurationPaths.getInstance().setDirectorAdminisionRegistro(parametros.getProperty("directorAdminisionRegistro"));
-            
-            
-            
-//            fileInputStream.close();
-//            objectInputStream.close();
+                                    
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -222,29 +225,5 @@ public class DataLoader {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             return null;
         }
-    }
-
-    
-    public static void main(String args[]) {
-        try {
-            ConfigurationPaths.getInstance();
-            ConfigurationPaths.getInstance().setDirectorAdminisionRegistro("Máster Geovanni Rojas Rodríguez");
-            ConfigurationPaths.getInstance().setDirectorEscuelaComputacion("Ing. Mauricio Arroyo Herrera");
-            ConfigurationPaths.getInstance().setPathCarteraDocentes("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\profesores.xls");
-            ConfigurationPaths.getInstance().setPathCursos("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\cursos.xls");
-            ConfigurationPaths.getInstance().setPathOfertaAcademica("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ofertaacademica.xls");
-            ConfigurationPaths.getInstance().setPathSolicitudesLocal("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\Solicitudes.ld");
-            ConfigurationPaths.getInstance().setPathGoogleDriveExcel("1e2dAAx72H7AkCg7xuKV0t4vkXIqRHEvCAUDCd9LGhRY");
-            ConfigurationPaths.getInstance().setFormatoGoogleFriveExcel("Sheet1!A2:K");
-            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\Giova\\Desktop\\ExcelDiseno\\ConfigurationsFile.ld");
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-            objectOutputStream.writeObject(ConfigurationPaths.getInstance());
-            objectOutputStream.close();
-            fileOutputStream.close();
-        } catch (Exception ex) {
-            System.out.println(ex.getLocalizedMessage());
-        }
-    }
-
+    }   
 }
