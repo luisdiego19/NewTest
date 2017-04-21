@@ -69,7 +69,7 @@ public class ConfigurationPaths implements Serializable {
         return formatoGoogleFriveExcel;
     }
 
-    public void setFormatoGoogleFriveExcel(String formatoGoogleFriveExcel) {
+    public void setFormatoGoogleDriveExcel(String formatoGoogleFriveExcel) {
         this.formatoGoogleFriveExcel = formatoGoogleFriveExcel;
     }
 

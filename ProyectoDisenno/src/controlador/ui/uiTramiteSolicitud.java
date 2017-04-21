@@ -1,6 +1,6 @@
 package controlador.ui;
 
-import controlador.Controlador;
+import controlador.controlador;
 import controlador.dao.DAOsolicitudes;
 import controlador.dto.DTOResolucion;
 import datos.Considerando;
@@ -13,7 +13,7 @@ public class uiTramiteSolicitud {
     
     private TramiteSolicitud tramiteSolicitud;
     private DTOSolicitud solicitud;
-    private Controlador controlador = new Controlador();
+    private controlador controlador = new controlador();
 
     public void llenarDatos()
     {
