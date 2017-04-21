@@ -28,15 +28,16 @@ public class DataLoader {
 
     public ArrayList<DTOSolicitud> cargaInicialSolicitudes() {
         try {
+            ArrayList<DTOSolicitud> solicitudesLocales = new ArrayList<>(); 
+            try{
             FileInputStream fileInputStream = new FileInputStream(ConfigurationPaths.getInstance().getPathSolicitudesLocal());
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            ArrayList<DTOSolicitud> solicitudesLocales = new ArrayList<>();            
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);                       
             boolean cont = true;
             while (cont) {
                 try{
                 DTOSolicitud solicitud = (DTOSolicitud) objectInputStream.readObject();
                 
-                if (solicitud != null) {
+                if (solicitud != null && !solicitud.getCodigo().equals("1533448800000150721")) {
                     solicitudesLocales.add(solicitud);
                 } else {
                     cont = false;
@@ -49,7 +50,10 @@ public class DataLoader {
                                     
             fileInputStream.close();
             objectInputStream.close();
-            
+            } catch(Exception ex)
+            {
+                
+            }
             ArrayList<DTOSolicitud> solicitudesNuevas = cargarSolicitudesGoogle();            
             for (DTOSolicitud solicitudGoogle : solicitudesNuevas) {                
                 boolean existe = false;
@@ -62,13 +66,10 @@ public class DataLoader {
                     solicitudesLocales.add(solicitudGoogle);
                 } 
             } 
-            
-            
-            
+                                    
             DAOsolicitudes dao = new DAOsolicitudes();
             dao.salvarSolicitudesLocal(solicitudesLocales);
             return solicitudesLocales;
-
         } catch (Exception ex) {
             System.out.println("Data Loader " + ex.getMessage());
             return null;
