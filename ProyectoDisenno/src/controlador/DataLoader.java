@@ -37,7 +37,7 @@ public class DataLoader {
                 try{
                 DTOSolicitud solicitud = (DTOSolicitud) objectInputStream.readObject();
                 
-                if (solicitud != null && !solicitud.getCodigo().equals("1533448800000150721")) {
+                if (solicitud != null) {
                     solicitudesLocales.add(solicitud);
                 } else {
                     cont = false;
